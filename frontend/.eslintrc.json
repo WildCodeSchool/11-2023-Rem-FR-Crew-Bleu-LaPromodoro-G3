@@ -17,6 +17,11 @@
   },
   "plugins": ["react", "import"],
   "rules": {
+    "prettier/prettier": [
+      "error",
+      { "endOfLine": "auto" }
+    ],
+    "linebreak-style": ["error", "windows"],
     "no-console": "off",
     "no-restricted-syntax": [
       "error",
