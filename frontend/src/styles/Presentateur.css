@@ -59,10 +59,6 @@
 
 @media screen and (min-width: 2048px) {
   #presenterContainer {
-    top: 35%;
-  }
-
-  #presenter {
-    height: 700px;
+    right: 20%;
   }
 }
