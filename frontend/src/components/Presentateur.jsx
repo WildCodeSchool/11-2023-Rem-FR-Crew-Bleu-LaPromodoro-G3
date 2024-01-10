@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSpring, config, animated } from "react-spring";
+import PropTypes from "prop-types";
 import presentateur1 from "../assets/Presentateur/pres1light.png";
 import presentateur2 from "../assets/Presentateur/pres2light.png";
 import presentateur3 from "../assets/Presentateur/pres3light.png";
@@ -18,7 +19,7 @@ const expressions = [
   presentateur7,
 ];
 
-function Presentateur() {
+function Presentateur({ goodTexts }) {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentExpressionIndex, setCurrentExpressionIndex] = useState(0);
   const [visibleText, setVisibleText] = useState("");
@@ -50,18 +51,28 @@ function Presentateur() {
   });
 
   // le texte 2 doit également appraitre a la fin du tableau pour une meilleure transition de l'animation.
-  const texts = [
-    "Bienvenue dans QuizCraft! Cliquez sur moi pour en savoir plus et découvrir les défis qui vous attendent. Prêt pour l'aventure ? ",
-    "Texte 2 correspondant à l'expression 2",
-    "Texte 3 correspondant à l'expression 3",
-    "Texte 2 correspondant à l'expression 2",
-  ];
+  const texts = {
+    Accueil: [
+      "Bienvenue dans QuizCraft! Cliquez sur moi pour en savoir plus et découvrir les défis qui vous attendent. Prêt pour l'aventure ? ",
+      "Texte 2 correspondant à l'expression 2",
+      "Texte 3 correspondant à l'expression 3",
+      "Texte 2 correspondant à l'expression 2",
+    ],
+    Creation: [
+      "Bienvenue dans l'espace creation ",
+      "Texte 2 correspondant à l'expression 2",
+      "Texte 3 correspondant à l'expression 3",
+      "Texte 2 correspondant à l'expression 2",
+    ],
+  };
+
+  const selectedTexts = texts[goodTexts];
 
   useEffect(() => {
     if (!isTextAnimating) {
-      setVisibleText(texts[currentTextIndex]);
+      setVisibleText(selectedTexts[currentTextIndex]);
     } else {
-      animateText(texts[currentTextIndex]);
+      animateText(selectedTexts[currentTextIndex]);
     }
   }, [currentTextIndex, isTextAnimating]);
 
@@ -79,17 +90,17 @@ function Presentateur() {
   }, [isTextAnimating, currentExpressionIndex]);
 
   const changeText = () => {
-    const newIndex = (currentTextIndex + 1) % texts.length;
+    const newIndex = (currentTextIndex + 1) % selectedTexts.length;
     setCurrentTextIndex(newIndex);
     setVisibleText("");
     setIsTextAnimating(true);
   };
 
   useEffect(() => {
-    if (currentTextIndex === texts.length - 1) {
+    if (currentTextIndex === selectedTexts.length - 1) {
       setCurrentTextIndex(1);
     }
-  }, [currentTextIndex, texts]);
+  }, [currentTextIndex, selectedTexts]);
 
   return (
     <div aria-hidden id="presenterContainer" onClick={changeText} role="button">
@@ -111,5 +122,9 @@ function Presentateur() {
     </div>
   );
 }
+
+Presentateur.propTypes = {
+  goodTexts: PropTypes.string.isRequired,
+};
 
 export default Presentateur;

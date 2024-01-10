@@ -5,7 +5,7 @@ import "../styles/Accueil.css";
 function Accueil() {
 return (
     <div id="accueil">
-    <Presentateur />
+    <Presentateur goodTexts="Accueil"/>
     </div>
 );
 }
