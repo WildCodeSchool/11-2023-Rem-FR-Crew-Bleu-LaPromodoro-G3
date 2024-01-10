@@ -1,0 +1,32 @@
+/* * {
+    background-image: url('../assets/theme-game-default.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+body {
+  background-image: url("../assets/theme-game-default.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.nav-logo {
+  margin-right: 91%;
+  width: 10vh;
+  background-image: none;
+  filter: drop-shadow(-4px -4px 50px #ffffff60);
+}
+
+.profile-picture {
+  height: 5vh;
+  width: auto;
+  border-radius: 50%;
+  margin-right: 4em;
+  border: 1px solid white;
+}

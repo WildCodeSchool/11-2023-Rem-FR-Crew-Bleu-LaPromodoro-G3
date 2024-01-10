@@ -1,41 +1,17 @@
-import Counter from "./components/Counter";
-import logo from "./assets/logo.svg";
+/* eslint-disable prettier/prettier */
+/* eslint-disable react/jsx-no-useless-fragment */
+import React from 'react';
+// import { NavLink, Outlet } from 'react-router-dom';
 
-import "./App.css";
+// import "./App.css";
+
+import Navbar3 from './components/Navbar3';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React !</p>
-
-        <Counter />
-
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    <>
+      <Navbar3 />
+    </>
   );
 }
 
