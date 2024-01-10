@@ -1,15 +1,3 @@
-/* * {
-    background-image: url('../assets/theme-game-default.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-} */
-
-body {
-  background-image: url("../assets/theme-game-default.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .nav-bar {
   display: flex;
   align-items: center;
@@ -18,9 +6,7 @@ body {
 
 .nav-logo {
   margin-right: 91%;
-  width: 10vh;
-  background-image: none;
-  filter: drop-shadow(-4px -4px 50px #ffffff60);
+  filter: drop-shadow(-4px -4px 50px #ffffff90);
 }
 
 .profile-picture {

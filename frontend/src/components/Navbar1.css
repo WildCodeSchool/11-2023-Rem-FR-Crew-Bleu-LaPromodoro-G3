@@ -23,6 +23,7 @@
   align-items: center;
   gap: 20px;
   margin-right: 25%;
+  background-image: none;
 }
 
 .links-container a:hover {
@@ -38,5 +39,6 @@
 .navbar-image {
   margin-left: 58%;
   width: 40vh;
-  margin-top: 5px;
+  filter: drop-shadow(-4px -4px 50px #ffffff90);
+  background-image: none;
 }

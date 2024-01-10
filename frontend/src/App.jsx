@@ -3,7 +3,7 @@
 import React from 'react';
 // import { NavLink, Outlet } from 'react-router-dom';
 
-// import "./App.css";
+import "./App.css";
 
 import Navbar3 from './components/Navbar3';
 
