@@ -1,7 +1,7 @@
 import "./Home.css";
 
-function Home() {
-  return <div>on est dans Home</div>;
+function Accueil() {
+  return <div className="Accueil">hello from Accueil</div>;
 }
 
-export default Home;
+export default Accueil;

@@ -3,11 +3,10 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import App from "./App";
 import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
 import Results from "./pages/Results";
-
-import App from "./App";
 
 const router = createBrowserRouter([
   {
