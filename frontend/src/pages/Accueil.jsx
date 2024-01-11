@@ -2,6 +2,7 @@
 import Presentateur from "../components/Presentateur";
 import "../styles/Accueil.css";
 import Navbar1 from "../components/Navbar1";
+import Footer from "../components/Footer";
 
 function Accueil() {
   return (
@@ -12,6 +13,7 @@ function Accueil() {
         idContainer="accueilPresPosition"
         idSpeech="accueilSpeechPosition"
       />
+      <Footer />
     </div>
   );
 }
