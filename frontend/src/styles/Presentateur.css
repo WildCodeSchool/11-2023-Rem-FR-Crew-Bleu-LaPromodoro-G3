@@ -1,0 +1,91 @@
+#presenter {
+  height: 700px;
+  filter: drop-shadow(10px 2px 4px #00000030);
+}
+
+#presenter:hover {
+  cursor: pointer;
+}
+
+.presContainer {
+  position: absolute;
+}
+
+#accueilPresPosition,
+#resultsPresPosition {
+  bottom: -100px;
+  right: 15%;
+}
+
+#quizPresPosition {
+  bottom: -100px;
+  left: 0%;
+}
+
+.presSpeech {
+  position: absolute;
+  background-color: #fafafa;
+  border-radius: 20px;
+  padding: 10px;
+  width: 100%;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.presSpeech::after {
+  content: "";
+  display: flex;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background-color: #fafafa;
+  clip-path: polygon(20% 0, 100% 100%, 0 100%);
+}
+
+#accueilSpeechPosition,
+#resultsSpeechPosition {
+  right: 60%;
+}
+
+#quizSpeechPosition {
+  left: 100%;
+}
+
+#accueilSpeechPosition::after,
+#resultsSpeechPosition::after {
+  top: 100%;
+  right: 30px;
+  rotate: 180deg;
+}
+
+#quizSpeechPosition::after {
+  top: 100%;
+  left: 30px;
+  rotate: 90deg;
+}
+
+.presSpeech,
+.presSpeech::after {
+  animation: scale-in-center 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite
+    both;
+}
+
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0.9);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+@media screen and (min-width: 2048px) {
+  #accueilPresContainer {
+    right: 20%;
+  }
+}

@@ -1,0 +1,39 @@
+/* body {
+  background: url("./theme-game-5.png");
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  color: #000;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listItem {
+  background-color: #333;
+  border-radius: 8px;
+  padding: 100px;
+  margin: 10px;
+  text-align: center;
+}
+
+.listItem a {
+  color: #000;
+  text-decoration: none;
+}
+
+.listItem a:hover {
+  text-decoration: underline;
+} */

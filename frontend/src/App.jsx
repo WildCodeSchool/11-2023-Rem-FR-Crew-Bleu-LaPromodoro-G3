@@ -1,14 +1,15 @@
+import Footer from "./components/Footer";
+import React from "react";
 import "./App.css";
-import HomePage from "./components/HomePage";
-import Modal from "./components/Modal";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <Modal />
-      <HomePage />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 }
-
 export default App;
