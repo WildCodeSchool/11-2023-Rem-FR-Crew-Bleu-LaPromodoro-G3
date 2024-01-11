@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import Slider from "react-slick";
-import QuizzLogo from "../assets/logo-1.png";
 import quizSport from "../assets/quizSport.png";
 import quizScience from "../assets/quizSciences.png";
 import quizCulturegeneral from "../assets/quizCulture.png";
@@ -41,13 +40,13 @@ function ThemePage() {
 
   return (
     <div className="pageStyle">
-      <header className="headerStyle">
+      {/* <header className="headerStyle">
         <img
           src={QuizzLogo}
           alt="Quizz Graft"
           style={{ width: "300px", height: "auto" }}
         />
-      </header>
+      </header> */}
       <main className="carouselContainerStyle">
         {/* <h1 style={{ textAlign: "center" }}>Bienvenue sur Quizz Graft</h1>
         <p style={{ textAlign: "center", marginBottom: "20px" }}>Choisissez un thème pour commencer le quizz :</p> */}

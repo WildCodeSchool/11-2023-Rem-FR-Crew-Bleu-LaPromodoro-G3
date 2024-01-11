@@ -1,7 +1,16 @@
+.pageStyle {
+  margin: 10px 10px 10px 5%;
+  overflow: hidden;
+  height: 60%;
+  color: white;
+  font-weight: 600;
+}
 .carouselContainerStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 300px;
-  margin: 20px;
-  /* background-color: red; */
+  margin: -3% 20px 20px 20px;
 }
 
 .themeBoxStyle {
@@ -10,22 +19,16 @@
 }
 
 .textTheme {
-  /* background-color: blue; */
   width: 100%;
-  /* margin: 20px; */
   color: "white";
   font-weight: "bold";
   font-size: 30px;
-  /* position: absolute; */
 }
 
 .cardImageCarousel {
   display: flex;
   flex-direction: column;
   text-align: center;
-  /* align-content: center; */
-  /* align-items: center; */
-  /* justify-content: center; */
 }
 
 .imgCarousel {
@@ -34,18 +37,16 @@
   border-radius: 5px;
 }
 
-/* a sup */
 .headerStyle {
   text-align: right;
   margin-bottom: 20px;
 }
 
-.pageStyle {
-  overflow: hidden;
-  height: 100vh;
-  padding: 20px;
-  background: url(../assets/theme-welcome-default.png) no-repeat center center
-    fixed;
-  background-size: cover;
-  color: white;
+@media screen and (max-width: 1440px) {
+  .pageStyle {
+    scale: 0.8;
+    margin-left: 0;
+    overflow: hidden;
+    height: 60%;
+  }
 }
