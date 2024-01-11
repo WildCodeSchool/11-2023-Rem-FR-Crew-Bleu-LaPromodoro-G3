@@ -1,15 +1,19 @@
 /* eslint-disable prettier/prettier */
 import Presentateur from "../components/Presentateur";
 import "../styles/Accueil.css";
+import Navbar1 from "../components/Navbar1";
 
 function Accueil() {
-
-return (
+  return (
     <div id="accueil">
-    <Presentateur goodTexts="Accueil" idContainer="accueilPresPosition" idSpeech="accueilSpeechPosition"/>
+      <Navbar1 />
+      <Presentateur
+        goodTexts="Accueil"
+        idContainer="accueilPresPosition"
+        idSpeech="accueilSpeechPosition"
+      />
     </div>
-);
+  );
 }
 
 export default Accueil;
-

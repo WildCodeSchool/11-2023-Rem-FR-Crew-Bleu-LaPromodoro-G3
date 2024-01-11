@@ -5,7 +5,7 @@
   --HeadingS: lighter 1.5rem "Star Jedi", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #ffffff;
+  /* color: #ffffff; */
   line-height: 2;
   font-weight: 400;
   background-image: url("../src/assets/background-theatre-509302860\ 1.png");
