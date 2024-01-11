@@ -69,7 +69,6 @@ function Presentateur({ goodTexts, idContainer, idSpeech }) {
       "Ton score finale est de (score) avec (NbGoodResponses) réponses correctes sur 10 ",
       "Ton score finale est de (score) avec (NbGoodResponses) réponses correctes sur 10 ",
     ],
-
   };
 
   const selectedTexts = texts[goodTexts];
@@ -109,7 +108,6 @@ function Presentateur({ goodTexts, idContainer, idSpeech }) {
   }, [currentTextIndex, selectedTexts]);
 
   return (
-
     <div
       aria-hidden
       id={idContainer}
@@ -125,7 +123,6 @@ function Presentateur({ goodTexts, idContainer, idSpeech }) {
         <p id={idSpeech} className="presSpeech">
           {visibleText}
         </p>
-
       )}
       <animated.img
         src={
@@ -144,7 +141,6 @@ Presentateur.propTypes = {
 
   idContainer: PropTypes.string.isRequired,
   idSpeech: PropTypes.string.isRequired,
-
 };
 
 export default Presentateur;
