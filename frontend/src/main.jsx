@@ -4,15 +4,15 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
-import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
 import Results from "./pages/Results";
+import Accueil from "./pages/Accueil";
 
 const router = createBrowserRouter([
   {
     element: <App />,
     children: [
-      { path: "/", element: <Home /> },
+      { path: "/", element: <Accueil /> },
       { path: "/quiz", element: <Quiz /> },
       { path: "/quiz/results", element: <Results /> },
     ],
