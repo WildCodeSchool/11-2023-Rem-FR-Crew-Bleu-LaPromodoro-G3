@@ -84,10 +84,6 @@ input {
   margin: 5px;
 }
 
-.preview img {
-  width: 20%;
-}
-
 .pseudo input {
   font-size: 16px;
 }
@@ -97,6 +93,8 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 40%;
+  gap: 5px;
 }
 
 .theme select {
@@ -108,4 +106,28 @@ input {
 
 .title-Avatar {
   padding-left: 10px;
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+}
+
+.image-preview {
+  width: 30%;
+  height: auto;
+  gap: 30px;
+  padding-left: 20px;
+}
+
+.information-setup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }

@@ -79,22 +79,25 @@ function Modal({ showModal, setShowModal, changeAvatarProfile, setUser, updateUs
                 onChange={handleInputChange}
               />
               </div>
-       <div className="theme">
-       <label htmlFor="themeInput">Thème: </label>
-      <select value={theme} onChange={handleThemeChange}>
-        <option value="">Sélectionnez un thème</option>
-        {themes.map((themeOption) => (
-          <option key={themeOption} value={themeOption}>
-            Thème {themes.indexOf(themeOption) + 1}
-          </option>
-        ))}
-      </select>
-      </div>
-      {theme && (
-      <div className="preview">
-        <img src={theme} alt="visualisation thème" />
-      </div>
-      )}
+              <div className="theme">
+  <label htmlFor="themeInput">Thème: </label>
+  <div className="select-container">
+    <select value={theme} onChange={handleThemeChange} className="custom-select">
+      <option value="">Sélectionnez un thème</option>
+      {themes.map((themeOption) => (
+        <option key={themeOption} value={themeOption}>
+          Thème {themes.indexOf(themeOption) + 1}
+        </option>
+      ))}
+    </select>
+    </div>
+    {theme && (
+
+        <img className="image-preview" src={theme} alt="visualisation thème" />
+     
+    )}
+  </div>
+
 
 
           
