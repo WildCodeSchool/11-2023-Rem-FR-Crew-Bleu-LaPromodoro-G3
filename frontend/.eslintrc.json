@@ -25,7 +25,7 @@
       { "endOfLine": "auto" }
     ],
     "linebreak-style": ["error", "unix"],
-    "no-console": "off",
+   "no-console": "off",
     "no-restricted-syntax": [
       "error",
       {
