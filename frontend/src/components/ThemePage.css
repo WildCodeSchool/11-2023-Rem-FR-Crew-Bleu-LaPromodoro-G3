@@ -1,0 +1,51 @@
+.carouselContainerStyle {
+  width: 300px;
+  margin: 20px;
+  /* background-color: red; */
+}
+
+.themeBoxStyle {
+  display: flex;
+  justify-content: center;
+}
+
+.textTheme {
+  /* background-color: blue; */
+  width: 100%;
+  /* margin: 20px; */
+  color: "white";
+  font-weight: "bold";
+  font-size: 30px;
+  /* position: absolute; */
+}
+
+.cardImageCarousel {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* align-content: center; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.imgCarousel {
+  width: 300px;
+  height: "auto";
+  border-radius: 5px;
+}
+
+/* a sup */
+.headerStyle {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.pageStyle {
+  overflow: hidden;
+  height: 100vh;
+  padding: 20px;
+  background: url(../assets/theme-welcome-default.png) no-repeat center center
+    fixed;
+  background-size: cover;
+  color: white;
+}
