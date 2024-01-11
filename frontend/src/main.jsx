@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
+
 import Quiz from "./pages/Quiz";
 import Results from "./pages/Results";
 import Accueil from "./pages/Accueil";

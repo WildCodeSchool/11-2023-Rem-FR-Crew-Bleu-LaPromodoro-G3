@@ -19,7 +19,7 @@ const expressions = [
   presentateur7,
 ];
 
-function Presentateur({ goodTexts }) {
+function Presentateur({ goodTexts, idContainer, idSpeech }) {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentExpressionIndex, setCurrentExpressionIndex] = useState(0);
   const [visibleText, setVisibleText] = useState("");
@@ -64,6 +64,11 @@ function Presentateur({ goodTexts }) {
       "Texte 3 correspondant à l'expression 3",
       "Texte 2 correspondant à l'expression 2",
     ],
+
+    Results: [
+      "Ton score finale est de (score) avec (NbGoodResponses) réponses correctes sur 10 ",
+      "Ton score finale est de (score) avec (NbGoodResponses) réponses correctes sur 10 ",
+    ],
   };
 
   const selectedTexts = texts[goodTexts];
@@ -103,13 +108,21 @@ function Presentateur({ goodTexts }) {
   }, [currentTextIndex, selectedTexts]);
 
   return (
-    <div aria-hidden id="presenterContainer" onClick={changeText} role="button">
+    <div
+      aria-hidden
+      id={idContainer}
+      className="presContainer"
+      onClick={changeText}
+      role="button"
+    >
       {currentTextIndex === 0 ? (
-        <animated.p id="speech" style={textOpacity}>
+        <animated.p id={idSpeech} style={textOpacity} className="presSpeech">
           {visibleText}
         </animated.p>
       ) : (
-        <p id="speech">{visibleText}</p>
+        <p id={idSpeech} className="presSpeech">
+          {visibleText}
+        </p>
       )}
       <animated.img
         src={
@@ -125,6 +138,9 @@ function Presentateur({ goodTexts }) {
 
 Presentateur.propTypes = {
   goodTexts: PropTypes.string.isRequired,
+
+  idContainer: PropTypes.string.isRequired,
+  idSpeech: PropTypes.string.isRequired,
 };
 
 export default Presentateur;

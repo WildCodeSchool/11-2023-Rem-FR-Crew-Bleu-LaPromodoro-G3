@@ -1,0 +1,52 @@
+.pageStyle {
+  margin: 10px 10px 10px 5%;
+  overflow: hidden;
+  height: 60%;
+  color: white;
+  font-weight: 600;
+}
+.carouselContainerStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin: -3% 20px 20px 20px;
+}
+
+.themeBoxStyle {
+  display: flex;
+  justify-content: center;
+}
+
+.textTheme {
+  width: 100%;
+  color: "white";
+  font-weight: "bold";
+  font-size: 30px;
+}
+
+.cardImageCarousel {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.imgCarousel {
+  width: 300px;
+  height: "auto";
+  border-radius: 5px;
+}
+
+.headerStyle {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1440px) {
+  .pageStyle {
+    scale: 0.8;
+    margin-left: 0;
+    overflow: hidden;
+    height: 60%;
+  }
+}
