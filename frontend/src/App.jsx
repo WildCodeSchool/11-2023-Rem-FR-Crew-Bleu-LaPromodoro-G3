@@ -1,12 +1,15 @@
+import Footer from "./components/Footer";
 import React from "react";
-import ThemePage from "./components/ThemePage";
+import "./App.css";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <ThemePage />
+    <div>
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 }
-
 export default App;
