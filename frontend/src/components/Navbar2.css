@@ -1,0 +1,25 @@
+.app-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.navbar-logo {
+  margin-right: 18%;
+  width: 38vh;
+  filter: drop-shadow(-4px -4px 50px #ffffff60);
+}
+
+.profile-pic {
+  height: 5vh;
+  width: auto;
+  border-radius: 50%;
+  margin-right: 4em;
+  border: 1px solid white;
+}
