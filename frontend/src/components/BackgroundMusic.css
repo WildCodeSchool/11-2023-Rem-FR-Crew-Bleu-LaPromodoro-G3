@@ -1,0 +1,18 @@
+.btnMusic {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btnMusic:hover {
+  background-color: #0056b3;
+}
+
+.butnMusic:active {
+  background-color: #00408b;
+}
