@@ -1,5 +1,5 @@
 import Presentateur from "../components/Presentateur";
-import "./Results.css";
+import "../styles/Results.css";
 
 function Results() {
   return (

@@ -3,13 +3,13 @@ import Presentateur from "../components/Presentateur";
 import ThemePage from "../components/ThemePage";
 import Navbar1 from "../components/Navbar1";
 import Footer from "../components/Footer";
-import "../styles/Accueil.css";
+import "../styles/Home.css";
 
 function Accueil() {
   return (
     <div id="accueil">
       <Navbar1 />
-      <ThemePage/>
+      <ThemePage />
       <Presentateur
         goodTexts="Accueil"
         idContainer="accueilPresPosition"

@@ -10,7 +10,7 @@ import quizMusique from "../assets/quizMusique.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import "./ThemePage.css";
+import "../styles/ThemePage.css";
 
 const themes = [
   { nom: "Sport", image: quizSport },
