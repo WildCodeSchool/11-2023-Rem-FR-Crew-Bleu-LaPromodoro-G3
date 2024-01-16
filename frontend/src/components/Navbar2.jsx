@@ -1,7 +1,7 @@
 import React from "react";
 import image from "../assets/Group 33.png";
 import picture from "../assets/canard.png";
-import "./Navbar2.css";
+import "../styles/Navbar2.css";
 
 function Navbar2() {
   return (
