@@ -7,7 +7,7 @@ import BackgroundMusic from "./components/BackgroundMusic";
 function App() {
   return (
     <div>
-      <BackgroundMusic musicUrl={backgroundMusicFile} volume={0.009} />
+      <BackgroundMusic musicUrl={backgroundMusicFile} volume={0.5} />
       <main>
         <Outlet />
       </main>

@@ -1,19 +1,23 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import "./BackgroundMusic.css";
 
 function BackgroundMusic({ musicUrl, volume = 1.0 }) {
   const audioRef = useRef(null);
 
+  // lecture (play/pause)de la musique
   const togglePlay = () => {
-    if (audioRef.current) {
-      if (audioRef.current.paused) {
-        audioRef.current.play();
-      } else {
-        audioRef.current.pause();
-      }
+    const playAudio = audioRef.current.paused
+      ? audioRef.current.play()
+      : audioRef.current.pause();
+    if (playAudio !== undefined) {
+      playAudio.catch(() => {
+        console.error("Lalecture de la musique a été bloquée");
+      });
     }
   };
 
+  // configuration du volume
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
@@ -31,6 +35,7 @@ function BackgroundMusic({ musicUrl, volume = 1.0 }) {
   );
 }
 
+// définition de mes props
 BackgroundMusic.propTypes = {
   musicUrl: PropTypes.string.isRequired,
   volume: PropTypes.number,
