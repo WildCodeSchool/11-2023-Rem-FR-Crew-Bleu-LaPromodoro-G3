@@ -4,9 +4,13 @@ import ThemePage from "../components/ThemePage";
 import Navbar1 from "../components/Navbar1";
 import Footer from "../components/Footer";
 import "../styles/Accueil.css";
+import ThemeChangeProvider from "../Context/ThemeContext";
+
 
 function Accueil() {
+
   return (
+    <ThemeChangeProvider> 
     <div id="accueil">
       <Navbar1 />
       <ThemePage/>
@@ -17,6 +21,7 @@ function Accueil() {
       />
       <Footer />
     </div>
+    </ThemeChangeProvider>
   );
 }
 

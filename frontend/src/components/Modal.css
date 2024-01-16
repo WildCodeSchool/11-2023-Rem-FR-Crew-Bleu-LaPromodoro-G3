@@ -92,7 +92,7 @@ input {
   padding: 10px 0px 10px 0px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-grow: 1;
   width: 40%;
   gap: 5px;
 }
@@ -119,15 +119,18 @@ input {
 }
 
 .image-preview {
-  width: 30%;
-  height: auto;
-  gap: 30px;
-  padding-left: 20px;
+  width: auto;
+  height: 40px;
+  object-fit: cover;
 }
 
 .information-setup {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.music input {
+  margin-left: 34px;
 }
