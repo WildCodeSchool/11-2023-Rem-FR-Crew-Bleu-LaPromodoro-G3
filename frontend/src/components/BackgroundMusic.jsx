@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import playButtonImg from "../assets/images/music.png";
 import "./BackgroundMusic.css";
 
 function BackgroundMusic({ musicUrl, volume = 1.0 }) {
@@ -25,12 +26,17 @@ function BackgroundMusic({ musicUrl, volume = 1.0 }) {
   }, [volume]);
 
   return (
-    <div>
+    <div className="ambientMusic">
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <audio ref={audioRef} src={musicUrl} loop />
-      <button type="button" className="btnMusic" onClick={togglePlay}>
-        Play/Pause
-      </button>
+      <img
+        className="btnMusic"
+        src={playButtonImg}
+        alt="Play/Pause"
+        onClick={togglePlay}
+        style={{ cursor: "pointer" }}
+      />
+      {/* <span>Play/Pause</span> Ajoutez le texte ici */}
     </div>
   );
 }

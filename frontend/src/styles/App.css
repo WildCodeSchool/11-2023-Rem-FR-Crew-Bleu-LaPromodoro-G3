@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --HeadingXL: lighter 4rem "Star Jedi", sans-serif;
   --HeadingL: lighter 2.5rem "Star Jedi", sans-serif;
   --HeadingM: lighter 2rem "Star Jedi", sans-serif;
@@ -6,10 +6,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 2;
-  font-weight: 400;
-  /* background-image: url("../src/assets/background-theatre-509302860\ 1.png"); */
-  background-size: cover;
+  font-weight: 400; */
+/* background-image: url("../src/assets/background-theatre-509302860\ 1.png"); */
+/* background-size: cover;
   background-repeat: no-repeat;
   font-synthesis: none;
   font-family: sans-serif;
-}
+} */
