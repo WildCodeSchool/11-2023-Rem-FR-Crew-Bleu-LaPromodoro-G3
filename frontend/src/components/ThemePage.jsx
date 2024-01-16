@@ -9,7 +9,6 @@ import quizWeb from "../assets/quizWeb.png";
 import quizMusique from "../assets/quizMusique.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import "../styles/ThemePage.css";
 
 const themes = [

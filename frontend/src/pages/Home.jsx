@@ -5,7 +5,7 @@ import Navbar1 from "../components/Navbar1";
 import Footer from "../components/Footer";
 import "../styles/Home.css";
 
-function Accueil() {
+function Home() {
   return (
     <div id="accueil">
       <Navbar1 />
@@ -20,4 +20,4 @@ function Accueil() {
   );
 }
 
-export default Accueil;
+export default Home;
