@@ -1,6 +1,7 @@
 import Presentateur from "../components/Presentateur";
 import Navbar2 from "../components/Navbar2";
 import "./Quiz.css";
+import VisuelMinuteur from "../components/VisuelMinuteur";
 
 function Quiz() {
   return (
@@ -11,6 +12,7 @@ function Quiz() {
         idContainer="quizPresPosition"
         idSpeech="quizSpeechPosition"
       />
+      <VisuelMinuteur />
     </div>
   );
 }
