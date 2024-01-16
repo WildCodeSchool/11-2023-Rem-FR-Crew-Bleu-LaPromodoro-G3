@@ -13,3 +13,11 @@
   font-synthesis: none;
   font-family: sans-serif;
 }
+
+main {
+  height: 100vh;
+}
+
+main > div {
+  height: 100%;
+}
