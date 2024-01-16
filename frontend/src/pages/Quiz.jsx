@@ -1,6 +1,6 @@
 import Presentateur from "../components/Presentateur";
 import Navbar2 from "../components/Navbar2";
-import "./Quiz.css";
+import "../styles/Quiz.css";
 
 function Quiz() {
   return (

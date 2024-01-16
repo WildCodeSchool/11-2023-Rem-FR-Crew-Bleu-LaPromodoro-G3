@@ -1,6 +1,6 @@
 footer {
   position: fixed;
-  bottom: 0;
+  bottom: 40px;
   width: 98%;
   padding: 10px;
   display: flex;
@@ -20,6 +20,7 @@ footer {
 
 footer p {
   margin-right: 10px;
+  color: white;
 }
 
 footer img {
