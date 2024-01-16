@@ -1,5 +1,5 @@
-import "./GitPage.css";
 import { Link } from "react-router-dom";
+import "../styles/GitPage.css";
 
 function GitPage() {
   return (

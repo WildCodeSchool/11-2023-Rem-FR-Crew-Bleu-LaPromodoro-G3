@@ -1,7 +1,7 @@
 import React from "react";
 import image from "../assets/Quiz1.png";
 import picture from "../assets/canard.png";
-import "./Navbar3.css";
+import "../styles/Navbar3.css";
 
 function Navbar3() {
   return (
