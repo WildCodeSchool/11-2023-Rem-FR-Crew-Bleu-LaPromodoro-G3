@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-named-as-default */
 import { createContext, useState, useContext } from "react";
 import themes from "../images/theme";
@@ -12,7 +13,7 @@ export default function ThemeChangeProvider({ children }) {
     setTheme(newTheme);
   };
   return (
-    <ThemeChangeContext.Provider value={(theme, changeTheme)}>
+    <ThemeChangeContext.Provider value={{ theme, changeTheme }}>
       {children}
     </ThemeChangeContext.Provider>
   );

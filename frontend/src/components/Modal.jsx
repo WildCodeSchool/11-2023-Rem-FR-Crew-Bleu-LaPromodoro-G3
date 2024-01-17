@@ -18,13 +18,15 @@ function Modal({
   // const {showModal, setShowModal, changeAvatarProfile, setUser, updateUserInformation, setSelectedTheme } = props
 
   const [pseudo, setPseudo] = useState("");
-  // const [arriere, setArriere] = useState("");
+  const [arriere, setArriere] = useState("");
   const [sound, setSound] = useState("25");
   const [sonorEffect, setSonorEffect] = useState("25");
   const [addChange, setAddChange] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(undefined);
   const [newSelectedImageIndex, setNewSelectedImageIndex] = useState(undefined);
-  const {theme} = useTheme();
+  
+  const { theme,changeTheme } = useTheme();
+
   // change le pseudo
   function handleInputChange(e) {
     setPseudo(e.target.value);
@@ -32,8 +34,8 @@ function Modal({
   }
 
   // changement de theme prend la valeur que j'écris + montre le bouton pour changement
-  function handleThemeChange() {
-    // setArriere(e.target.value);
+  function handleThemeChange(e) {
+    setArriere(e.target.value);
     setAddChange(true);
   }
 
@@ -42,10 +44,11 @@ function Modal({
     setAddChange(true);
     setSelectedImageIndex(newSelectedImageIndex);
     changeAvatarProfile(newSelectedImageIndex);
-    updateUserInformation(pseudo, theme, selectedImageIndex);
+    changeTheme(arriere)
+    updateUserInformation(pseudo, arriere, selectedImageIndex);
     localStorage.setItem("selectedAvatarIndex", newSelectedImageIndex);
     localStorage.setItem("userPseudo", pseudo);
-    localStorage.setItem("SelectedTheme", theme);
+    localStorage.setItem("SelectedTheme", arriere);
     setShowModal(false);
     console.info("Modal closed")
   }
@@ -93,8 +96,7 @@ function Modal({
               <label htmlFor="themeInput">Thème: </label>
               <div className="select-container">
                 <select
-                  
-                  onChange={handleThemeChange}
+                  onChange={(e) => handleThemeChange(e)}
                   className="custom-select"
                 >
                   <option value="">Sélectionnez un thème</option>

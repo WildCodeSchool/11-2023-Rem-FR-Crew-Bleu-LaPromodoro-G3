@@ -8,6 +8,7 @@ import App from "./App";
 import Quiz from "./pages/Quiz";
 import Results from "./pages/Results";
 import Accueil from "./pages/Accueil";
+import ThemeChangeProvider from "./Context/ThemeContext";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ThemeChangeProvider>
+      <RouterProvider router={router} />
+    </ThemeChangeProvider>
   </React.StrictMode>
 );

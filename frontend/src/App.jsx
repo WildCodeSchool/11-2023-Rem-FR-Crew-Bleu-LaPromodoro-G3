@@ -1,22 +1,24 @@
 import "./App.css";
 import { Outlet } from "react-router-dom";
-import ThemeChangeProvider from "./Context/ThemeContext";
+import { useTheme } from "./Context/ThemeContext";
 
 function App() {
   // const selectedTheme = localStorage.getItem("selectedTheme");
-  // const backgroundImageUrl = `url(${selectedTheme})`;
-  //
+
+  const { theme } = useTheme();
+
   return (
-    <ThemeChangeProvider>
-      <div
-      // style={{ backgroundImage: `url(${selectedTheme})` }}
-      // style={{ backgroundImage: backgroundImageUrl, backgroundSize: "cover" }}
-      >
-        <main>
-          <Outlet />
-        </main>
-      </div>
-    </ThemeChangeProvider>
+    <div
+      style={{
+        backgroundImage: `url(${theme})`,
+        backgroundSize: "100% 100%",
+        height: "100vh",
+      }}
+    >
+      <main>
+        <Outlet />
+      </main>
+    </div>
   );
 }
 export default App;
