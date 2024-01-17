@@ -2,7 +2,6 @@
 /* eslint-disable prettier/prettier */
 import  { useState } from "react";
 // eslint-disable-next-line import/named
-import PropTypes from "prop-types";
 import { useTheme } from "../Context/ThemeContext";
 import { images } from "../assets/images/images";
 import { themes } from "../assets/images/theme";
@@ -176,19 +175,17 @@ function Modal({
             </button>
           </div>
         </div>
-      ) : // </div> */}
-
-      // </div>
+      ) : 
       null}
     </div>
   );
 }
-Modal.propTypes = {
-  showModal: PropTypes.bool.isRequired,
-  setShowModal: PropTypes.bool.isRequired,
-  changeAvatarProfile: PropTypes.string.isRequired,
-  setUser: PropTypes.string.isRequired,
-  updateUserInformation: PropTypes.string.isRequired,
-  setSelectedTheme: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
+// Modal.propTypes = {
+//   showModal: PropTypes.bool.isRequired,
+//   setShowModal: PropTypes.bool.isRequired,
+//   changeAvatarProfile: PropTypes.string.isRequired,
+//   setUser: PropTypes.string.isRequired,
+//   updateUserInformation: PropTypes.string.isRequired,
+//   setSelectedTheme: PropTypes.arrayOf(PropTypes.string).isRequired,}
+
 export default Modal;
