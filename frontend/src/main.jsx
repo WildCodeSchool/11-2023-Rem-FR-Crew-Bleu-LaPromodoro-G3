@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 import React from "react";
 import ReactDOM from "react-dom/client";
 
@@ -7,14 +8,14 @@ import App from "./App";
 
 import Quiz from "./pages/Quiz";
 import Results from "./pages/Results";
-import Accueil from "./pages/Accueil";
 import ThemeChangeProvider from "./Context/ThemeContext";
+import Home from "./pages/Home";
 
 const router = createBrowserRouter([
   {
     element: <App />,
     children: [
-      { path: "/", element: <Accueil /> },
+      { path: "/", element: <Home /> },
       { path: "/quiz", element: <Quiz /> },
       { path: "/quiz/results", element: <Results /> },
     ],

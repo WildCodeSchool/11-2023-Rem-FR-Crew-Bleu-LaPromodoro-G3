@@ -1,6 +1,6 @@
-import "./App.css";
 import { Outlet } from "react-router-dom";
 import { useTheme } from "./Context/ThemeContext";
+import "./styles/App.css";
 
 function App() {
   // const selectedTheme = localStorage.getItem("selectedTheme");

@@ -1,11 +1,12 @@
 import { useState, useCallback } from "react";
 import Presentateur from "../components/Presentateur";
 import Navbar2 from "../components/Navbar2";
-import "./Quiz.css";
 import picture from "../assets/canard.png";
 import Modal from "../components/Modal";
-import { images } from "../images/images";
+import { images } from "../assets/images/images";
 import { useTheme } from "../Context/ThemeContext";
+
+import "../styles/Quiz.css";
 
 function Quiz() {
   const [isModalOpen, setIsModalOpen] = useState(false);

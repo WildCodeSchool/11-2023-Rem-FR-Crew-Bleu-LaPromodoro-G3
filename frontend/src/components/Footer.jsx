@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Footer.css";
+import "../styles/Footer.css";
 
 function Footer() {
   return (
@@ -9,10 +9,10 @@ function Footer() {
       </div>
       <div className="right-content">
         <Link to="/git">
-          <img src="./src/components/Github.png" alt="Github" />
+          <img src="./src/assets/Github.png" alt="Github" />
         </Link>
         <Link to="/linkedin">
-          <img src="./src/components/Linkedin.png" alt="Linkedin" />
+          <img src="./src/assets/Linkedin.png" alt="Linkedin" />
         </Link>
       </div>
     </footer>

@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-named-as-default */
 import { createContext, useState, useContext } from "react";
-import themes from "../images/theme";
+import themes from "../assets/images/theme";
 
 const ThemeChangeContext = createContext();
 

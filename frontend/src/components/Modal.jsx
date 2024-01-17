@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable prettier/prettier */
-import React, { useState } from "react";
-import "./Modal.css";
-import { images } from "../images/images";
-import { themes } from "../images/theme";
+import  { useState } from "react";
 // eslint-disable-next-line import/named
+import PropTypes from "prop-types";
 import { useTheme } from "../Context/ThemeContext";
+import { images } from "../assets/images/images";
+import { themes } from "../assets/images/theme";
+import "../styles/Modal.css";
+
 
 // eslint-disable-next-line react/prop-types
 function Modal({
@@ -14,9 +16,9 @@ function Modal({
   changeAvatarProfile,
   setUser,
   updateUserInformation,
+  setSelectedTheme,
 }) {
-  // const {showModal, setShowModal, changeAvatarProfile, setUser, updateUserInformation, setSelectedTheme } = props
-
+    // const {showModal, setShowModal, changeAvatarProfile, setUser, updateUserInformation, setSelectedTheme } = props
   const [pseudo, setPseudo] = useState("");
   const [arriere, setArriere] = useState("");
   const [sound, setSound] = useState("25");
@@ -24,8 +26,8 @@ function Modal({
   const [addChange, setAddChange] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(undefined);
   const [newSelectedImageIndex, setNewSelectedImageIndex] = useState(undefined);
-  
   const { theme,changeTheme } = useTheme();
+
 
   // change le pseudo
   function handleInputChange(e) {
@@ -49,8 +51,9 @@ function Modal({
     localStorage.setItem("selectedAvatarIndex", newSelectedImageIndex);
     localStorage.setItem("userPseudo", pseudo);
     localStorage.setItem("SelectedTheme", arriere);
+    setSelectedTheme(theme);
     setShowModal(false);
-    console.info("Modal closed")
+
   }
 
   // changement pour volume
@@ -97,6 +100,7 @@ function Modal({
               <div className="select-container">
                 <select
                   onChange={(e) => handleThemeChange(e)}
+                  value={theme}
                   className="custom-select"
                 >
                   <option value="">Sélectionnez un thème</option>
@@ -179,5 +183,12 @@ function Modal({
     </div>
   );
 }
-
+Modal.propTypes = {
+  showModal: PropTypes.bool.isRequired,
+  setShowModal: PropTypes.bool.isRequired,
+  changeAvatarProfile: PropTypes.string.isRequired,
+  setUser: PropTypes.string.isRequired,
+  updateUserInformation: PropTypes.string.isRequired,
+  setSelectedTheme: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 export default Modal;

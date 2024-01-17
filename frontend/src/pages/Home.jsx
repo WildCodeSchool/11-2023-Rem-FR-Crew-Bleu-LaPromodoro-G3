@@ -3,17 +3,16 @@ import Presentateur from "../components/Presentateur";
 import ThemePage from "../components/ThemePage";
 import Navbar1 from "../components/Navbar1";
 import Footer from "../components/Footer";
-import "../styles/Accueil.css";
 import ThemeChangeProvider from "../Context/ThemeContext";
+import "../styles/Home.css";
 
-
-function Accueil() {
+function Home() {
 
   return (
     <ThemeChangeProvider> 
     <div id="accueil">
       <Navbar1 />
-      <ThemePage/>
+      <ThemePage />
       <Presentateur
         goodTexts="Accueil"
         idContainer="accueilPresPosition"
@@ -25,4 +24,4 @@ function Accueil() {
   );
 }
 
-export default Accueil;
+export default Home;

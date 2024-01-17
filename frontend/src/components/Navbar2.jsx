@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import image from "../assets/Group 33.png";
-import "./Navbar2.css";
+// import picture from "../assets/canard.png";
+import "../styles/Navbar2.css";
 
 function Navbar2({ openModal, avatarProfile }) {
   const handleProfileClick = () => {
