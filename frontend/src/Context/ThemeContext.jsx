@@ -1,23 +1,44 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-named-as-default */
-import { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 import themes from "../assets/images/theme";
 
 const ThemeChangeContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export default function ThemeChangeProvider({ children }) {
-  const [theme, setTheme] = useState(themes[0]);
-  // const contextValue = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
+  const [theme, setTheme] = useState("");
+  const [previousTheme, setPreviousTheme] = useState(themes[0]);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("SelectedTheme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+      setPreviousTheme(savedTheme);
+    } else {
+      localStorage.setItem("SelectedTheme", themes[0]);
+    }
+  }, []);
+
   const changeTheme = (newTheme) => {
     setTheme(newTheme);
+    localStorage.setItem("SelectedTheme", newTheme);
   };
+
+  // Fonction pour rétablir le thème précédent
+  const restorePreviousTheme = () => {
+    setTheme(previousTheme);
+  };
+
   return (
-    <ThemeChangeContext.Provider value={{ theme, changeTheme }}>
+    <ThemeChangeContext.Provider
+      value={{ theme, changeTheme, restorePreviousTheme }}
+    >
       {children}
     </ThemeChangeContext.Provider>
   );
 }
+
 export const useTheme = () => {
   return useContext(ThemeChangeContext);
 };

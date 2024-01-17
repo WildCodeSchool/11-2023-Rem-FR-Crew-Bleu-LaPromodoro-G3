@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable prettier/prettier */
-import  { useState } from "react";
+import  { useState, useEffect } from "react";
 // eslint-disable-next-line import/named
 import { useTheme } from "../Context/ThemeContext";
 import { images } from "../assets/images/images";
@@ -15,7 +15,6 @@ function Modal({
   changeAvatarProfile,
   setUser,
   updateUserInformation,
-  setSelectedTheme,
 }) {
     // const {showModal, setShowModal, changeAvatarProfile, setUser, updateUserInformation, setSelectedTheme } = props
   const [pseudo, setPseudo] = useState("");
@@ -36,7 +35,9 @@ function Modal({
 
   // changement de theme prend la valeur que j'écris + montre le bouton pour changement
   function handleThemeChange(e) {
-    setArriere(e.target.value);
+    const newTheme = e.target.value;
+    setArriere(newTheme);
+  
     setAddChange(true);
   }
 
@@ -45,12 +46,12 @@ function Modal({
     setAddChange(true);
     setSelectedImageIndex(newSelectedImageIndex);
     changeAvatarProfile(newSelectedImageIndex);
-    changeTheme(arriere)
+    changeTheme(arriere);
     updateUserInformation(pseudo, arriere, selectedImageIndex);
     localStorage.setItem("selectedAvatarIndex", newSelectedImageIndex);
     localStorage.setItem("userPseudo", pseudo);
     localStorage.setItem("SelectedTheme", arriere);
-    setSelectedTheme(theme);
+    // setSelectedTheme(theme);
     setShowModal(false);
 
   }
@@ -67,11 +68,26 @@ function Modal({
 
   // changement de l'image de profil + affiche le bouton pour changement
   const handleChangeAvatar = (index) => {
-    setNewSelectedImageIndex(index);
-    setSelectedImageIndex(index);
 
+    if (index === selectedImageIndex) {
+      setNewSelectedImageIndex(undefined);
+      setSelectedImageIndex(undefined);
+    } else {
+   
+      setNewSelectedImageIndex(index);
+      setSelectedImageIndex(index);
+    }
+  
     setAddChange(true);
   };
+
+  useEffect(() => {
+    if (arriere === "") {
+     
+      setArriere(theme);
+    }
+  }, [theme, arriere]);
+
 
   return (
     <div className="container-Modal">
@@ -102,21 +118,21 @@ function Modal({
                   value={theme}
                   className="custom-select"
                 >
-                  <option value="">Sélectionnez un thème</option>
-                  {themes.map((themeOption) => (
+                  
+                  {themes.map((themeOption,index) => (
                     <option key={themeOption} value={themeOption}>
-                      Thème {themes.indexOf(themeOption) + 1}
+                      {index === 0 ? "Thème par défaut" : `Thème ${index}`}
                     </option>
                   ))}
                 </select>
               </div>
-              {theme && (
-                <img
-                  className="image-preview"
-                  src={theme}
-                  alt="visualisation thème"
-                />
-              )}
+              {arriere && (
+    <img
+      className="image-preview"
+      src={arriere} 
+      alt="visualisation thème"
+    />
+  )}
             </div>
 
             <div className="music">

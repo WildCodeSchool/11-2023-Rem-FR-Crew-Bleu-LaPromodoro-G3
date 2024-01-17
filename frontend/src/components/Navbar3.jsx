@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import image from "../assets/Quiz1.png";
-import picture from "../assets/canard.png";
+import defaultAvatar from "../assets/defaultAvatar";
 import "../styles/Navbar3.css";
 
 function Navbar3() {
+  const [profileImage, setProfileImage] = useState(null);
+
+  useEffect(() => {
+    const storedProfileImage = localStorage.getItem("profileImage");
+    if (storedProfileImage) {
+      setProfileImage(storedProfileImage);
+    }
+  }, []);
+
   return (
     <nav className="top-nav">
       <div className="nav-bar">
         <img src={image} alt="logo" className="nav-logo" />
-        <img src={picture} alt="profile" className="profile-picture" />
+        {profileImage ? (
+          <img src={profileImage} alt="profile" className="profile-picture" />
+        ) : (
+          <img src={defaultAvatar} alt="profile" className="profile-picture" />
+        )}
       </div>
     </nav>
   );
