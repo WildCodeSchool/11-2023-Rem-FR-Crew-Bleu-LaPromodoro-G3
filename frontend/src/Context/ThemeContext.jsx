@@ -25,7 +25,6 @@ export default function ThemeChangeProvider({ children }) {
     localStorage.setItem("SelectedTheme", newTheme);
   };
 
-  // Fonction pour rétablir le thème précédent
   const restorePreviousTheme = () => {
     setTheme(previousTheme);
   };

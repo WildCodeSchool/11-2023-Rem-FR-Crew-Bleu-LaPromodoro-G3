@@ -15,7 +15,7 @@
   cursor: pointer;
   font-weight: bold;
   font-size: 16px;
-  background-color: aquamarine;
+  background: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
 }
 
 .button-add-changment.visible {

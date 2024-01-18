@@ -4,8 +4,7 @@ import defaultAvatar from "../assets/defaultAvatar";
 import "../styles/Navbar3.css";
 
 function Navbar3() {
-  const [profileImage, setProfileImage] = useState(null);
-
+  const [profileImage, setProfileImage] = useState(defaultAvatar);
   useEffect(() => {
     const storedProfileImage = localStorage.getItem("profileImage");
     if (storedProfileImage) {

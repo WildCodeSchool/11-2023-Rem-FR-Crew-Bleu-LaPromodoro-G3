@@ -3,8 +3,6 @@ import { useTheme } from "./Context/ThemeContext";
 import "./styles/App.css";
 
 function App() {
-  // const selectedTheme = localStorage.getItem("selectedTheme");
-
   const { theme } = useTheme();
 
   return (

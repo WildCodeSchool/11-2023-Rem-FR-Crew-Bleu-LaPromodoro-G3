@@ -5,7 +5,7 @@ import picture from "../assets/canard.png";
 import Modal from "../components/Modal";
 import { images } from "../assets/images/images";
 import { useTheme } from "../Context/ThemeContext";
-
+import AvatarProvider from "../Context/AvatarContext";
 import "../styles/Quiz.css";
 
 function Quiz() {
@@ -39,7 +39,9 @@ function Quiz() {
 
   return (
     <div style={{ backgroundImage: `url(${selectedTheme})` }}>
-      <Navbar2 openModal={openModal} avatarProfile={avatarProfile} />
+      <AvatarProvider>
+        <Navbar2 openModal={openModal} avatarProfile={avatarProfile} />
+      </AvatarProvider>
       <Presentateur
         goodTexts="Accueil"
         idContainer="quizPresPosition"
