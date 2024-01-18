@@ -66,12 +66,12 @@ function Presentateur({ goodTexts, idContainer, idSpeech }) {
     ],
 
     Results: [
-      "Ton score finale est de (score) avec (NbGoodResponses) réponses correctes sur 10 ",
-      "Ton score finale est de (score) avec (NbGoodResponses) réponses correctes sur 10 ",
+      "Ton score final est de (score) avec (NbGoodResponses) réponses correctes sur 10 ",
+      "Ton score final est de (score) avec (NbGoodResponses) réponses correctes sur 10 ",
     ],
   };
 
-  const selectedTexts = texts[goodTexts];
+  const selectedTexts = texts[goodTexts] || [];
 
   useEffect(() => {
     if (!isTextAnimating) {
