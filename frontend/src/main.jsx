@@ -8,6 +8,8 @@ import App from "./App";
 import Quiz from "./pages/Quiz";
 import Results from "./pages/Results";
 import Home from "./pages/Home";
+import GitPage from "./components/GitPage";
+import Linkedin from "./components/Linkedin";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,8 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/quiz", element: <Quiz /> },
       { path: "/quiz/results", element: <Results /> },
+      { path: "/git", element: <GitPage /> },
+      { path: "/linkedin", element: <Linkedin /> },
     ],
   },
 ]);
