@@ -1,14 +1,15 @@
 #buttonNext {
   position: absolute;
-  top: 72%;
-  left: 87%;
+  top: 75%;
+  left: 105%;
 }
 #buttonNextQuestion {
   background-color: #aae6e6;
   color: #fefefe;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  padding: 28px 10px;
+  width: 15rem;
+  height: 5rem;
   font-size: 1.3rem;
   font-weight: 600;
   border: white;
@@ -20,11 +21,4 @@
   box-shadow: 0 0 rgba(0, 0, 0, 0.4);
   border-bottom-width: 2px;
   transform: translateY(3px);
-}
-
-@media screen and (min-width: 2048px) {
-  #buttonNext {
-    top: 76%;
-    left: 90%;
-  }
 }

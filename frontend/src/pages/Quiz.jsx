@@ -1,18 +1,18 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Presentateur from "../components/Presentateur";
 import Navbar2 from "../components/Navbar2";
-import QuizOptions from "../components/QuizOptions";
-import ButtonNext from "../components/ButtonNext";
+import QuizDisplay from "../components/QuizDisplay";
 import "../styles/Quiz.css";
 
 function Quiz() {
-  // const [quizData, setQuizData] = useState("Welcome to Quiz");
+  const [quizData, setQuizData] = useState("Welcome to Quiz");
 
-  // useEffect(() => {
-  //   fetch("http://localhost:4000/category/easy")
-  //     .then((res) => res.json())
-  //     .then((data) => setQuizData(data));
-  // }, []);
+  useEffect(() => {
+    fetch("http://localhost:4747/quiz/all")
+      .then((res) => res.json())
+      .then((data) => setQuizData(data));
+  }, []);
+  console.info(quizData);
 
   return (
     <div>
@@ -22,8 +22,7 @@ function Quiz() {
         idContainer="quizPresPosition"
         idSpeech="quizSpeechPosition"
       />
-      <QuizOptions />
-      <ButtonNext />
+      <QuizDisplay id="quizDisplay" />
     </div>
   );
 }

@@ -2,23 +2,16 @@
   left: 7%;
 }
 #quizSpeechPosition {
-  margin-left: 20px;
-
-  width: 700px;
-  height: 150px;
-  text-align: center;
+  display: none;
 }
 
 @media screen and (min-width: 2048px) {
   #quizPresPosition {
-    bottom: -60px;
-    left: 10%;
-    height: 60%;
+    left: 15%;
   }
-  #quizSpeechPosition {
-    margin-left: 60px;
-    width: 1000px;
-    height: 150px;
-    text-align: center;
+}
+@media screen and (max-width: 1600px) {
+  #quizPresPosition {
+    left: -5%;
   }
 }
