@@ -1,21 +1,107 @@
-/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ButtonNext from "./ButtonNext";
 import "../styles/QuizDisplay.css";
 
-function QuizDisplay({ questionsData }) {
-  const questions = [];
-  questionsData.map((question) => questions.push(question));
-  console.info(questions);
-  // eslint-disable-next-line react/prop-types
+function QuizDisplay() {
+  const questionsData = [
+    {
+      questions: [
+        {
+          id: "30001AA",
+          question:
+            "Sous quel autre nom connaît-on mieux le chlorure de sodium ?",
+          options: ["Le sucre", "Le sel", "Le poivre", "La moutarde"],
+          correct_option: "Le sel",
+        },
+        {
+          id: "30002AA",
+          question: "Quel est le plus grand océan du monde ?",
+          options: [
+            "Océan Atlantique",
+            "Océan Pacifique",
+            "Océan Indien",
+            "Océan Arctique",
+          ],
+          correct_option: "Océan Pacifique",
+        },
+        {
+          id: "30003AA",
+          question: "Quel est le symbole chimique du fer  ?",
+          options: ["Fe", "Fr", "Fi", "Fa"],
+          correct_option: "Fe",
+        },
+        {
+          id: "30004AA",
+          question:
+            "Quel volcan italien a enseveli la ville de Pompéi le 24 août de l'an 79 ?",
+          options: [
+            "Le Vésuve",
+            "L'Etna",
+            "Le Mont Barbaro",
+            "Eyjafjallajökull",
+          ],
+          correct_option: "Le Vésuve",
+        },
+        {
+          id: "30005AA",
+          question: "En quelle année a eu lieu la chute du mur de Berlin ?",
+          options: ["1889", "1991", "1961", "1989"],
+          correct_option: "1989",
+        },
+        {
+          id: "30006AA",
+          question: "Combien compte-t-on de couleurs primaires ?",
+          options: ["3", "4", "5", "6"],
+          correct_option: "3",
+        },
+        {
+          id: "30007AA",
+          question: "Quelle est la langue maternelle la plus parlée au monde ?",
+          options: ["Le mandarin", "L'anglais", "l'espagnol", "le français"],
+          correct_option: "Le mandarin",
+        },
+        {
+          id: "30008AA",
+          question: "Dans quel pays peut-on visiter la Sagrada Familia ?",
+          options: ["Mexique", "Portugal", "Espagne", "Brésil"],
+          correct_option: "Espagne",
+        },
+        {
+          id: "30009AA",
+          question: "Qui est considéré comme “le père” de la bombe atomique ?",
+          options: [
+            "Albert Einstein",
+            "Rudolf Diesel",
+            "Robert Oppenheimer",
+            "Enrico Fermi",
+          ],
+          correct_option: "Robert Oppenheimer",
+        },
+        {
+          id: "30010AA",
+          question:
+            "Dans la mythologie grecque, quelle créature est chargée de garder l’entrée des enfers ?",
+          options: [
+            "Le minotaure",
+            "Cerbère",
+            "  Un titan",
+            " Un hécatonchire ",
+          ],
+          correct_option: "Cerbère",
+        },
+      ],
+    },
+  ];
+  console.info(questionsData);
+  // Transformation des questionsData pour obtenir une seule liste de questions
+  const questions = questionsData.flatMap((category) => category.questions);
   const totalQuestions = questions.length;
-  console.info(totalQuestions);
   // State pour vérifier l'index de question
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   const currentQuestion = questions[currentQuestionIndex];
-  console.info(currentQuestion);
+
   // State pour vérifier si la personne a déjà choisi sa réponse
   const [answered, setAnswered] = useState(false);
   // State pour pouvoir comparer la réponse choisie avec la réponse correcte
