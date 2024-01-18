@@ -8,12 +8,14 @@ import App from "./App";
 import Quiz from "./pages/Quiz";
 import Results from "./pages/Results";
 import Home from "./pages/Home";
+import QuizCreation from "./pages/QuizCreation";
 
 const router = createBrowserRouter([
   {
     element: <App />,
     children: [
       { path: "/", element: <Home /> },
+      { path: "/quizCreation", element: <QuizCreation /> },
       { path: "/quiz", element: <Quiz /> },
       { path: "/quiz/results", element: <Results /> },
     ],
