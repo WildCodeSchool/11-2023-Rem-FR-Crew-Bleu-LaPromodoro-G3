@@ -45,8 +45,8 @@ button:hover {
   background-color: #e8408c;
 }
 
-p {
-  color: #444;
+#response {
+  color: #f5f5f5;
 }
 
 .question {

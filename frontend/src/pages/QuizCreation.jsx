@@ -87,7 +87,9 @@ function QuizCreator() {
             </button>
             {question.answers.map((answer, answerIndex) => (
               // eslint-disable-next-line react/no-array-index-key
-              <p key={answerIndex}>{answer}</p>
+              <p id="response" key={answerIndex}>
+                {answer}
+              </p>
             ))}
             <button type="button" onClick={handleSaveQuiz}>
               Enregistrer le Quiz
