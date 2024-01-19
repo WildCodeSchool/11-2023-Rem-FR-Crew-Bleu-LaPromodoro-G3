@@ -1,39 +1,41 @@
-/* body {
-  background: url("./theme-game-5.png");
-  background-size: cover;
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .heading {
-  color: #000;
+  color: #333;
   text-align: center;
-  margin-bottom: 100px;
 }
 
 .list {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  list-style: none;
+  padding: 0;
 }
 
-.listItem {
-  background-color: #333;
-  border-radius: 8px;
-  padding: 100px;
-  margin: 10px;
-  text-align: center;
-}
-
-.listItem a {
-  color: #000;
+.list a {
+  display: block;
+  padding: 10px;
+  margin: 5px 0;
   text-decoration: none;
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
-.listItem a:hover {
-  text-decoration: underline;
-} */
+.list a:hover {
+  background-color: red;
+  color: #fff;
+}
