@@ -1,0 +1,36 @@
+.containerLinkedin {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f0f0f0 !important;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  color: #333;
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list a {
+  display: block;
+  padding: 10px;
+  margin: 5px 0;
+  text-decoration: none;
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.list a:hover {
+  background-color: red;
+  color: #fff;
+}
