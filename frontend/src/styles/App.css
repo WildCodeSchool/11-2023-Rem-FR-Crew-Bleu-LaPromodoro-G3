@@ -1,4 +1,4 @@
- :root {
+:root {
   line-height: 2;
   background-repeat: no-repeat;
   font-synthesis: none;
@@ -16,4 +16,3 @@ main {
 main > div {
   height: 100%;
 }
-

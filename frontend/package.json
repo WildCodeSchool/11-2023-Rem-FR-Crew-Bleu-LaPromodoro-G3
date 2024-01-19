@@ -3,7 +3,7 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "proxy" : "http://localhost:4000" 
+    "proxy": "http://localhost:4000"
   },
   "dependencies": {
     "prop-types": "^15.8.1",

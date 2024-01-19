@@ -1,10 +1,13 @@
 import { useLocation, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Navbar2 from "../components/Navbar2";
+import { useState, useCallback, useEffect } from "react";
 import Presentateur from "../components/Presentateur";
-import ButtonNext from "../components/ButtonNext";
-// import QuizDisplay from "../components/QuizDisplay";
+import Navbar2 from "../components/Navbar2";
+import picture from "../assets/canard.png";
+import Modal from "../components/Modal";
+import { images } from "../assets/images/images";
+import { useTheme } from "../Context/ThemeContext";
 import "../styles/Quiz.css";
+import ButtonNext from "../components/ButtonNext";
 
 function Quiz() {
   const location = useLocation();
@@ -34,35 +37,7 @@ function Quiz() {
         console.error("Erreur lors de la récupération des questions :", error);
       });
   }, [selectedCategory, defaultDifficulty]);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await fetch(
-  //         `http://localhost:4747/quiz/category/${selectedCategory}/difficulty/${defaultDifficulty}`
-  //       );
-  //       if (!res.ok) {
-  //         throw new Error(`HTTP error! Status: ${res.status}`);
-  //       }
-  //       const data = await res.json();
-  //       if (Array.isArray(data.questions)) {
-  //         setQuestionsData(data.questions);
-  //         console.info(data);
-  //       } else {
-  //         console.error("Invalid data structure received from the API.");
-  //       }
-  //     } catch (error) {
-  //       console.error("Erreur lors de la récupération des questions :", error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [selectedCategory, defaultDifficulty]);
   console.info(questionsData.length);
-  // const firstQuestion = questionsData.length > 0 ? questionsData[0] : null;
-  // useEffect(() => {
-  //   if (questionsData !== null) {
-  //     return questionsData;
-  //   }
-  // }, [setQuestionsData]);
   const questions = [];
   // on recupere les questions de quiz avec map on les mets dans array questions
   questionsData.map((question) => questions.push(question));
@@ -111,13 +86,47 @@ function Quiz() {
     }
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [avatarProfile, setAvatarProfile] = useState(picture);
+  // eslint-disable-next-line no-unused-vars
+  const [userInformation, setUserInformation] = useState({
+    pseudo: "",
+    theme: "",
+    avatarIndex: null,
+  });
+  const { selectedTheme } = useTheme();
+  const updateUserInformation = useCallback(
+    (pseudo, theme, selectedImageIndex) => {
+      setUserInformation({ pseudo, theme, avatarIndex: selectedImageIndex });
+    },
+    []
+  );
+
+  const changeAvatarProfile = useCallback((index) => {
+    setAvatarProfile(images[index]);
+  }, []);
+
+  const openModal = useCallback(() => {
+    setIsModalOpen(true);
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+  }, []);
+
   return (
-    <div>
-      <Navbar2 />
+    <div style={{ backgroundImage: `url(${selectedTheme})` }}>
+      <Navbar2 openModal={openModal} avatarProfile={avatarProfile} />
       <Presentateur
         goodTexts="Results"
         idContainer="quizPresPosition"
         idSpeech="quizSpeechPosition"
+      />
+      <Modal
+        showModal={isModalOpen}
+        setShowModal={closeModal}
+        changeAvatarProfile={changeAvatarProfile}
+        updateUserInformation={updateUserInformation}
       />
       {quizCompleted ? (
         <div className="finalScore">

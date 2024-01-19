@@ -1,26 +1,24 @@
-/* eslint-disable prettier/prettier */
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+/* eslint-disable react/prop-types */
+import { useState, useEffect } from "react";
+import { useTheme } from "../Context/ThemeContext";
 import { images } from "../assets/images/images";
 import { themes } from "../assets/images/theme";
 import "../styles/Modal.css";
+import { useAvatar } from "../Context/AvatarContext";
 
-// eslint-disable-next-line react/prop-types
-function Modal({
-  showModal,
-  setShowModal,
-  changeAvatarProfile,
-  setUser,
-  updateUserInformation,
-  setSelectedTheme,
-}) {
+function Modal({ showModal, setShowModal, setUser }) {
+  // const {showModal, setShowModal, changeAvatarProfile, setUser, updateUserInformation, setSelectedTheme } = props
+  const [arriere, setArriere] = useState("");
   const [pseudo, setPseudo] = useState("");
-  const [theme, setTheme] = useState("");
   const [sound, setSound] = useState("25");
   const [sonorEffect, setSonorEffect] = useState("25");
   const [addChange, setAddChange] = useState(false);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(undefined);
+  const [selectedImageIndex, setSelectedImageIndex] = useState("");
   const [newSelectedImageIndex, setNewSelectedImageIndex] = useState(undefined);
+
+  const { theme, changeTheme } = useTheme();
+  const { updateProfileImage } = useAvatar();
+
   // change le pseudo
   function handleInputChange(e) {
     setPseudo(e.target.value);
@@ -29,17 +27,35 @@ function Modal({
 
   // changement de theme prend la valeur que j'écris + montre le bouton pour changement
   function handleThemeChange(e) {
-    setTheme(e.target.value);
+    const newTheme = e.target.value;
+    setArriere(newTheme);
     setAddChange(true);
   }
+  // changement de l'image de profil + affiche le bouton pour changement
+  const handleChangeAvatar = (index) => {
+    if (index === selectedImageIndex) {
+      setNewSelectedImageIndex(undefined);
+      setSelectedImageIndex(undefined);
+    } else {
+      setNewSelectedImageIndex(index);
+      setSelectedImageIndex(index);
+    }
+    setAddChange(true);
+  };
 
   // bouton pour enregistrer les modifs
   function handdleAddChange() {
+    const newImage = images[newSelectedImageIndex];
+
+    updateProfileImage(newImage);
     setAddChange(true);
-    updateUserInformation(pseudo, theme, selectedImageIndex);
     setSelectedImageIndex(newSelectedImageIndex);
-    changeAvatarProfile(newSelectedImageIndex);
-    setSelectedTheme(theme);
+    changeTheme(arriere);
+
+    localStorage.setItem("profileImage", newImage);
+    localStorage.setItem("userPseudo", pseudo);
+    localStorage.setItem("SelectedTheme", arriere);
+
     setShowModal(false);
   }
 
@@ -53,13 +69,11 @@ function Modal({
     setSonorEffect(newEffect);
   };
 
-  // changement de l'image de profil + affiche le bouton pour changement
-  const handleChangeAvatar = (index) => {
-    setNewSelectedImageIndex(index);
-    setSelectedImageIndex(index);
-
-    setAddChange(true);
-  };
+  useEffect(() => {
+    if (arriere === "") {
+      setArriere(theme);
+    }
+  }, [theme, arriere]);
 
   return (
     <div className="container-Modal">
@@ -86,22 +100,21 @@ function Modal({
               <label htmlFor="themeInput">Thème: </label>
               <div className="select-container">
                 <select
-                  value={theme}
-                  onChange={handleThemeChange}
+                  onChange={(e) => handleThemeChange(e)}
+                  value={arriere}
                   className="custom-select"
                 >
-                  <option value="">Sélectionnez un thème</option>
-                  {themes.map((themeOption) => (
+                  {themes.map((themeOption, index) => (
                     <option key={themeOption} value={themeOption}>
-                      Thème {themes.indexOf(themeOption) + 1}
+                      {index === 0 ? "Thème par défaut" : `Thème ${index}`}
                     </option>
                   ))}
                 </select>
               </div>
-              {theme && (
+              {arriere && (
                 <img
                   className="image-preview"
-                  src={theme}
+                  src={arriere}
                   alt="visualisation thème"
                 />
               )}
@@ -157,25 +170,22 @@ function Modal({
             <button
               type="submit"
               onClick={handdleAddChange}
-              style={{ display: addChange ? "block" : "none" }}
+              style={{ display: addChange ? "flex" : "none" }}
             >
               Enregistrer les changements
             </button>
           </div>
         </div>
-      ) : // </div> */}
-
-      // </div>
-      null}
+      ) : null}
     </div>
   );
 }
-Modal.propTypes = {
-  showModal: PropTypes.bool.isRequired,
-  setShowModal: PropTypes.bool.isRequired,
-  changeAvatarProfile: PropTypes.string.isRequired,
-  setUser: PropTypes.string.isRequired,
-  updateUserInformation: PropTypes.string.isRequired,
-  setSelectedTheme: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
+// Modal.propTypes = {
+//   showModal: PropTypes.bool.isRequired,
+//   setShowModal: PropTypes.bool.isRequired,
+//   changeAvatarProfile: PropTypes.string.isRequired,
+//   setUser: PropTypes.string.isRequired,
+//   updateUserInformation: PropTypes.string.isRequired,
+//   setSelectedTheme: PropTypes.arrayOf(PropTypes.string).isRequired,}
+
 export default Modal;
