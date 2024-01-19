@@ -6,10 +6,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 
+import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
 import Results from "./pages/Results";
+
 import ThemeChangeProvider from "./Context/ThemeContext";
-import Home from "./pages/Home";
+import AvatarProvider from "./Context/AvatarContext";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +29,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeChangeProvider>
-      <RouterProvider router={router} />
+      <AvatarProvider>
+        <RouterProvider router={router} />
+      </AvatarProvider>
     </ThemeChangeProvider>
   </React.StrictMode>
 );

@@ -1,15 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useContext, useEffect } from "react";
 import image from "../assets/Group 33.png";
-import { AvatarContext } from "../Context/AvatarContext";
+import { useAvatar } from "../Context/AvatarContext";
 
 import "../styles/Navbar2.css";
 
 function Navbar2({ openModal }) {
-  const { profileImage } = useContext(AvatarContext);
-  useEffect(() => {
-    console.info("profileImage a changé :", profileImage);
-  }, [profileImage]);
+  const { profileImage } = useAvatar();
 
   const handleProfileClick = () => {
     openModal();

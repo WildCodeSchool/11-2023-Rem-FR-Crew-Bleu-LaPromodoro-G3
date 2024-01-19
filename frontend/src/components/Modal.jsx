@@ -1,32 +1,23 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-/* eslint-disable prettier/prettier */
-import  { useState, useEffect, useContext } from "react";
-// eslint-disable-next-line import/named
+import { useState, useEffect } from "react";
 import { useTheme } from "../Context/ThemeContext";
 import { images } from "../assets/images/images";
 import { themes } from "../assets/images/theme";
 import "../styles/Modal.css";
-import defaultAvatar from "../assets/defaultAvatar";
-import { AvatarContext } from "../Context/AvatarContext";
+import { useAvatar } from "../Context/AvatarContext";
 
-// eslint-disable-next-line react/prop-types
-function Modal({
-  showModal,
-  setShowModal,
-setUser
-}) {
-    // const {showModal, setShowModal, changeAvatarProfile, setUser, updateUserInformation, setSelectedTheme } = props
-  const [pseudo, setPseudo] = useState("");
+function Modal({ showModal, setShowModal, setUser }) {
+  // const {showModal, setShowModal, changeAvatarProfile, setUser, updateUserInformation, setSelectedTheme } = props
   const [arriere, setArriere] = useState("");
+  const [pseudo, setPseudo] = useState("");
   const [sound, setSound] = useState("25");
   const [sonorEffect, setSonorEffect] = useState("25");
   const [addChange, setAddChange] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState("");
   const [newSelectedImageIndex, setNewSelectedImageIndex] = useState(undefined);
-  const { theme,changeTheme } = useTheme();
- const {profileImage,updateProfileImage } = useContext(AvatarContext)
 
+  const { theme, changeTheme } = useTheme();
+  const { updateProfileImage } = useAvatar();
 
   // change le pseudo
   function handleInputChange(e) {
@@ -38,34 +29,34 @@ setUser
   function handleThemeChange(e) {
     const newTheme = e.target.value;
     setArriere(newTheme);
-  
     setAddChange(true);
   }
-    // changement de l'image de profil + affiche le bouton pour changement
-    const handleChangeAvatar = (index) => {
-
-      if (index === selectedImageIndex) {
-        setNewSelectedImageIndex(undefined);
-        setSelectedImageIndex(undefined);
-      } else {
-        setNewSelectedImageIndex(index);
-        setSelectedImageIndex(index);
-      }
-      setAddChange(true);
-    };
+  // changement de l'image de profil + affiche le bouton pour changement
+  const handleChangeAvatar = (index) => {
+    if (index === selectedImageIndex) {
+      setNewSelectedImageIndex(undefined);
+      setSelectedImageIndex(undefined);
+    } else {
+      setNewSelectedImageIndex(index);
+      setSelectedImageIndex(index);
+    }
+    setAddChange(true);
+  };
 
   // bouton pour enregistrer les modifs
   function handdleAddChange() {
+    const newImage = images[newSelectedImageIndex];
+
+    updateProfileImage(newImage);
     setAddChange(true);
     setSelectedImageIndex(newSelectedImageIndex);
     changeTheme(arriere);
-    const newImage = images[newSelectedImageIndex];
-    updateProfileImage(newImage);
+
     localStorage.setItem("profileImage", newImage);
     localStorage.setItem("userPseudo", pseudo);
     localStorage.setItem("SelectedTheme", arriere);
-    setShowModal(false);
 
+    setShowModal(false);
   }
 
   // changement pour volume
@@ -78,10 +69,8 @@ setUser
     setSonorEffect(newEffect);
   };
 
-
   useEffect(() => {
     if (arriere === "") {
-     
       setArriere(theme);
     }
   }, [theme, arriere]);
@@ -115,8 +104,7 @@ setUser
                   value={arriere}
                   className="custom-select"
                 >
-                  
-                  {themes.map((themeOption,index) => (
+                  {themes.map((themeOption, index) => (
                     <option key={themeOption} value={themeOption}>
                       {index === 0 ? "Thème par défaut" : `Thème ${index}`}
                     </option>
@@ -124,12 +112,12 @@ setUser
                 </select>
               </div>
               {arriere && (
-    <img
-      className="image-preview"
-      src={arriere} 
-      alt="visualisation thème"
-    />
-  )}
+                <img
+                  className="image-preview"
+                  src={arriere}
+                  alt="visualisation thème"
+                />
+              )}
             </div>
 
             <div className="music">
@@ -188,8 +176,7 @@ setUser
             </button>
           </div>
         </div>
-      ) : 
-      null}
+      ) : null}
     </div>
   );
 }
