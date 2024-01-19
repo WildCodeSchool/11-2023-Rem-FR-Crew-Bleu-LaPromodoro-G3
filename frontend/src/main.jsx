@@ -10,12 +10,15 @@ import Results from "./pages/Results";
 import Home from "./pages/Home";
 import GitPage from "./components/GitPage";
 import Linkedin from "./components/Linkedin";
+import QuizCreation from "./pages/QuizCreation";
+
 
 const router = createBrowserRouter([
   {
     element: <App />,
     children: [
       { path: "/", element: <Home /> },
+      { path: "/quizCreation", element: <QuizCreation /> },
       { path: "/quiz", element: <Quiz /> },
       { path: "/quiz/results", element: <Results /> },
       { path: "/git", element: <GitPage /> },

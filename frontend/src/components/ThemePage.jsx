@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import PropTypes from "prop-types";
 import React from "react";
 import Slider from "react-slick";
 import quizSport from "../assets/quizSport.png";
@@ -14,13 +15,13 @@ import "../styles/ThemePage.css";
 const themes = [
   { nom: "Sport", image: quizSport },
   { nom: "Science", image: quizScience },
-  { nom: "Culture générale", image: quizCulturegeneral },
-  { nom: "Cinéma", image: quizCinema },
+  { nom: "CultureG", image: quizCulturegeneral },
+  { nom: "cinema", image: quizCinema },
   { nom: "Web", image: quizWeb },
   { nom: "Musique", image: quizMusique },
 ];
 
-function ThemePage() {
+function ThemePage({ onCategorySelected }) {
   const settings = {
     dots: false,
     infinite: true,
@@ -29,29 +30,23 @@ function ThemePage() {
     vertical: true,
     verticalSwiping: true,
     swipeToSlide: true,
-    // beforeChange: function (currentSlide, nextSlide) {
-    //   console.log("before change", currentSlide, nextSlide);
-    // },
-    // afterChange: function (currentSlide) {
-    //   console.log("after change", currentSlide);
-    // }
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
   };
 
   return (
     <div className="pageStyle">
-      {/* <header className="headerStyle">
-        <img
-          src={QuizzLogo}
-          alt="Quizz Graft"
-          style={{ width: "300px", height: "auto" }}
-        />
-      </header> */}
       <main className="carouselContainerStyle">
-        {/* <h1 style={{ textAlign: "center" }}>Bienvenue sur Quizz Graft</h1>
-        <p style={{ textAlign: "center", marginBottom: "20px" }}>Choisissez un thème pour commencer le quizz :</p> */}
         <Slider {...settings}>
           {themes.map((theme) => (
-            <div aria-hidden="true" key={theme.nom} className="themeBoxStyle">
+            <div
+              aria-hidden="true"
+              key={theme.nom}
+              className="themeBoxStyle"
+              onClick={() => onCategorySelected(theme.nom)}
+            >
               <div className="cardImageCarousel">
                 <img
                   src={theme.image}
@@ -67,5 +62,9 @@ function ThemePage() {
     </div>
   );
 }
+
+ThemePage.propTypes = {
+  onCategorySelected: PropTypes.func.isRequired,
+};
 
 export default ThemePage;
