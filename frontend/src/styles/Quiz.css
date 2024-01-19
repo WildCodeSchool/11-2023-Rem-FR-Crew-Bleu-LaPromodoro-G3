@@ -95,12 +95,14 @@
   transition: 0.3s;
   font-size: 1.3rem;
   font-weight: 600;
+  color: black;
 }
 .option0:hover,
 .option1:hover,
 .option2:hover,
 .option3:hover {
   transform: scale(1.02);
+  background-color: #fafafa;
 }
 
 .correctOption {
@@ -111,12 +113,6 @@
   background-color: #e31a26;
   color: #fafafa;
 }
-
-span {
-  color: white;
-  text-align: center;
-}
-
 .finalScore {
   margin: 18% 0 0 30%;
   width: 70%;
@@ -160,6 +156,15 @@ span {
 .linkHomePage {
   text-decoration: none;
   background-color: #aae6e6;
+}
+.container {
+  box-shadow: 0 0 0 0 !important;
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+  background-color: transparent;
+  height: 10%;
+  width: 30%;
 }
 @media screen and (min-width: 2048px) {
   .quizDisplay {

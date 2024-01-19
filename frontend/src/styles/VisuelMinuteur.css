@@ -1,0 +1,17 @@
+.minuteur {
+  border: 3px solid red;
+}
+
+.container {
+  background-color: transparent !important;
+}
+
+.barCompleted {
+  background-color: transparent !important ;
+  width: 80%;
+}
+
+.label {
+  font-size: 20px;
+  color: green;
+}

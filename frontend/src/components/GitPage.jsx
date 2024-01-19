@@ -7,7 +7,7 @@ import "../styles/GitPage.css";
 function GitPage() {
   return (
     <body>
-      <div className="container">
+      <div className="containerGithub">
         <h1 className="heading">Git Pages</h1>
         <ul className="list">
           <li>

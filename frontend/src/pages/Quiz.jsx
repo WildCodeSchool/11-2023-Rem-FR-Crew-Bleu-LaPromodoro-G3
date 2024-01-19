@@ -2,6 +2,7 @@ import { useLocation, Link } from "react-router-dom";
 import { useState, useCallback, useEffect } from "react";
 import Presentateur from "../components/Presentateur";
 import Navbar2 from "../components/Navbar2";
+import VisuelMinuteur from "../components/VisuelMinuteur";
 import picture from "../assets/canard.png";
 import Modal from "../components/Modal";
 import { images } from "../assets/images/images";
@@ -122,6 +123,7 @@ function Quiz() {
         idContainer="quizPresPosition"
         idSpeech="quizSpeechPosition"
       />
+
       <Modal
         showModal={isModalOpen}
         setShowModal={closeModal}
@@ -178,6 +180,7 @@ function Quiz() {
           )}
         </div>
       )}
+      <VisuelMinuteur />
     </div>
   );
 }

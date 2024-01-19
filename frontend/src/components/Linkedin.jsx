@@ -4,7 +4,7 @@ import "../styles/Linkedin.css";
 function Linkedin() {
   return (
     <body>
-      <div className="container">
+      <div className="containerLinkedin">
         <h1 className="heading">Linkedin</h1>
         <ul className="list">
           <li>
