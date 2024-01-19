@@ -1,4 +1,5 @@
 .pageStyle {
+  overflow: hidden;
   color: white;
   font-weight: 600;
   width: 200px;
