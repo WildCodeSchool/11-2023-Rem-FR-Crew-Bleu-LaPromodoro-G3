@@ -102,7 +102,7 @@ span {
   border-bottom-width: 3px;
   transform: translateY(3px);
 }
-.buttonHomePage a {
+.linkHomePage {
   text-decoration: none;
   background-color: #aae6e6;
 }
