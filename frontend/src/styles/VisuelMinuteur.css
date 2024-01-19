@@ -1,13 +1,13 @@
 .minuteur {
-  border: 3px solid blue;
+  border: 3px solid red;
 }
 
 .container {
-  background-color: pink;
+  background-color: transparent;
 }
 
 .barCompleted {
-  background-color: lightblue;
+  background-color: transparent !important ;
   width: 80%;
 }
 

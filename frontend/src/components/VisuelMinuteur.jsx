@@ -1,27 +1,24 @@
-import { useState, useEffect } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
-
-import "./VisuelMinuteur.css";
+import { useEffect, useState } from "react";
+import "../styles/VisuelMinuteur.css";
 
 function VisuelMinuteur() {
-  const [progress, setProgress] = useState(50);
-
+  const [progress, setProgress] = useState(15);
   useEffect(() => {
     const interval = setInterval(() => {
-      setProgress((prevProgress) => (prevProgress > 0 ? prevProgress - 1 : 0));
+      setProgress((prevState) => (prevState > 0 ? prevState - 1 : 0));
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
-
   return (
-    <div>
+    <div className="container">
+      {progress}
       <ProgressBar
-        className="progressBar minuteur"
-        completed={`${progress}`}
-        barContainerClassName="container"
-        completedClassName="barCompleted"
-        labelClassName="label"
+        completed={progress}
+        maxCompleted={15}
+        className="barCompleted"
+        bgColor="#f4091a"
       />
     </div>
   );
