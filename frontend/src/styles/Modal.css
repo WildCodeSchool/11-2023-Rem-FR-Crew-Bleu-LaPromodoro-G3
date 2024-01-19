@@ -51,12 +51,13 @@ input {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70%;
-  height: 90%;
+  width: 56%;
+  height: 83%;
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
   border-radius: 10px;
   text-align: center;
+  z-index: 99;
 }
 
 .music {
@@ -66,18 +67,19 @@ input {
 
 .personnage-Selection {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(3, minmax(0, 74px));
   justify-items: center;
 }
 
 .personnage-Selection img {
-  width: 100px;
-  height: 100px;
   object-fit: cover;
   cursor: pointer;
   border-radius: 50%;
   margin: 5px;
+  min-height: 50px;
+  height: 50%;
+  min-width: 50px;
+  width: 50%;
 }
 
 .personnage-Selection img.selected {
@@ -134,4 +136,8 @@ input {
 
 .music input {
   margin-left: 34px;
+}
+
+.sonoreEffect {
+  display: flex;
 }

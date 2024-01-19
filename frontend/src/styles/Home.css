@@ -6,6 +6,11 @@
   font-family: "Quicksand", sans-serif;
 }
 
+.header-flex {
+  display: flex;
+  justify-content: end;
+}
+
 body {
   overflow: hidden;
 }

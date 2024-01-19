@@ -88,4 +88,7 @@
   #accueilPresContainer {
     right: 20%;
   }
+  #presenter {
+    height: 800px;
+  }
 }

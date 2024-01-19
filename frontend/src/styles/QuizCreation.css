@@ -1,0 +1,91 @@
+.quizzCreated {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10%;
+  padding: 30px;
+}
+
+.createQuiz {
+  background-color: #f5f5f5;
+}
+
+h1,
+H2,
+h3,
+h4 {
+  color: rgb(0, 6, 9);
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+button {
+  background-color: #992be2;
+  /* width: 80px; */
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #e8408c;
+}
+
+#response {
+  color: #f5f5f5;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.answers {
+  margin-bottom: 10px;
+}
+.answer {
+  background-color: #ddd;
+  padding: 8px;
+  margin-bottom: 5px;
+}
+
+#presenterCustom {
+  right: 20px;
+  bottom: 10%;
+}
+#speechContainer {
+  left: -70%;
+}
+
+#speechContainer::after {
+  right: 0px;
+  clip-path: polygon(80% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.popup {
+  position: relative;
+  top: 65vh;
+  margin-left: 20vh;
+}
+
+.Toastify__toast--default {
+  width: 250px;
+  height: 100px;
+  background: rgb(151, 151, 241);
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
