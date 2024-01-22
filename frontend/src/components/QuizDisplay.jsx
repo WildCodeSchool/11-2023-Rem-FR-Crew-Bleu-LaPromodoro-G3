@@ -1,30 +1,29 @@
-/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ButtonNext from "./ButtonNext";
 import "../styles/QuizDisplay.css";
 
+// eslint-disable-next-line react/prop-types
 function QuizDisplay({ questionsData }) {
-  const questions = [];
-  // on recupere les questions de quiz avec map on les mets dans array questions
-  questionsData.map((question) => questions.push(question));
-  console.info(questions);
-  // eslint-disable-next-line react/prop-types
-  const totalQuestions = questions.length;
-  console.info(totalQuestions);
-  // State pour vérifier l'index de question
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  // Ici on stocke la question, les options et la réponse correcte affichée
-  const currentQuestion = questions[currentQuestionIndex];
-  console.info(currentQuestion);
   // State pour vérifier si la personne a déjà choisi sa réponse
   const [answered, setAnswered] = useState(false);
-  // State pour pouvoir comparer la réponse choisie avec la réponse correcte
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
   // State pour compter les bonnes réponses de l'utilisateur
   const [countScore, setCountScore] = useState(0);
+  // State pour vérifier l'index de question
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  // eslint-disable-next-line react/prop-types
+  // State pour pouvoir comparer la réponse choisie avec la réponse correcte
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
   // State pour gérer l'affichage du résultat final
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const questions = [];
+  // on recupere les questions de quiz avec map on les mets dans array questions
+  // eslint-disable-next-line react/prop-types
+  questionsData.map((question) => questions.push(question));
+  // eslint-disable-next-line react/prop-types
+  const totalQuestions = questions.length;
+  // Ici on stocke la question, les options et la réponse correcte affichée
+  const currentQuestion = questions[currentQuestionIndex];
 
   // Fonction pour comparer les réponses
   const checkOption = () => {
@@ -55,12 +54,10 @@ function QuizDisplay({ questionsData }) {
 
   return (
     <div>
-      {/* Ici si le quiz est fini, le résultat sera affiché, si non les questions
-      et les options seront affichées une par une */}
       {quizCompleted ? (
         <div className="finalScore">
           <div className="messageScore">
-            <p>{`Ton score finale est ${countScore} / 10`}</p>
+            <p>{`Ton score final est ${countScore} / 10`}</p>
           </div>
           <div>
             <Link to="/" className="linkHomePage">
@@ -72,33 +69,39 @@ function QuizDisplay({ questionsData }) {
         </div>
       ) : (
         <div className="quizDisplay">
-          <div id="questionDisplay">
-            <p>{currentQuestion.question}</p>
-          </div>
-          <div id="quizOptions">
-            {currentQuestion.options.map((option, index) => (
-              <button
-                className={`option ${`option${index}`} ${
-                  // eslint-disable-next-line no-nested-ternary
-                  selectedAnswer === option && answered
-                    ? option === currentQuestion.correct_option
-                      ? "correctOption"
-                      : "wrongOption"
-                    : "option"
-                } `}
-                type="submit"
-                onClick={() => {
-                  if (!answered) {
-                    setSelectedAnswer(option);
-                    setAnswered(true);
-                  }
-                }}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
-          <ButtonNext onClick={handleNextQuestion} />
+          {currentQuestion ? (
+            <>
+              <div id="questionDisplay">
+                <p>{currentQuestion.question}</p>
+              </div>
+              <div id="quizOptions">
+                {currentQuestion.options.map((option, index) => (
+                  <button
+                    className={`option ${`option${index}`} ${
+                      // eslint-disable-next-line no-nested-ternary
+                      selectedAnswer === option && answered
+                        ? option === currentQuestion.correct_option
+                          ? "correctOption"
+                          : "wrongOption"
+                        : "option"
+                    } `}
+                    type="submit"
+                    onClick={() => {
+                      if (!answered) {
+                        setSelectedAnswer(option);
+                        setAnswered(true);
+                      }
+                    }}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+              <ButtonNext onClick={handleNextQuestion} />
+            </>
+          ) : (
+            <p>Fin du quiz</p>
+          )}
         </div>
       )}
     </div>
