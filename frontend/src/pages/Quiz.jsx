@@ -9,6 +9,7 @@ import { images } from "../assets/images/images";
 import { useTheme } from "../Context/ThemeContext";
 import "../styles/Quiz.css";
 import ButtonNext from "../components/ButtonNext";
+import DifficultySelector from "../components/DifficultySelector";
 
 function Quiz() {
   const location = useLocation();
@@ -16,9 +17,16 @@ function Quiz() {
   console.info(`category ${selectedCategory}`);
   const defaultDifficulty = "hard";
   const [questionsData, setQuestionsData] = useState([null]);
+  const [selectedDifficulty, setSelectedDifficulty] =
+    useState(defaultDifficulty);
+
+  const handleDifficultyChange = (difficulty) => {
+    setSelectedDifficulty(difficulty);
+  };
+
   useEffect(() => {
     fetch(
-      `http://localhost:4747/quiz/category/${selectedCategory}/difficulty/${defaultDifficulty}`
+      `http://localhost:4747/quiz/category/${selectedCategory}/difficulty/${selectedDifficulty}`
     )
       .then((res) => {
         if (!res.ok) {
@@ -37,7 +45,7 @@ function Quiz() {
       .catch((error) => {
         console.error("Erreur lors de la récupération des questions :", error);
       });
-  }, [selectedCategory, defaultDifficulty]);
+  }, [selectedCategory, selectedDifficulty]);
   console.info(questionsData.length);
   const questions = [];
   // on recupere les questions de quiz avec map on les mets dans array questions
@@ -118,6 +126,10 @@ function Quiz() {
   return (
     <div style={{ backgroundImage: `url(${selectedTheme})` }}>
       <Navbar2 openModal={openModal} avatarProfile={avatarProfile} />
+      <DifficultySelector
+        selectedDifficulty={selectedDifficulty}
+        onChangeDifficulty={handleDifficultyChange}
+      />
       <Presentateur
         goodTexts="Results"
         idContainer="quizPresPosition"
