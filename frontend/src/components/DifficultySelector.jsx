@@ -7,7 +7,7 @@ function DifficultySelector({ selectedDifficulty, onChangeDifficulty }) {
 
   return (
     <div className="difficultySection">
-      <p>Choisissez la difficulté :</p>
+      <p> Choisissez la difficulté et cliquez sur Start : </p>
 
       <div id="difficultContainer">
         {difficultyOptions.map((difficulty) => (

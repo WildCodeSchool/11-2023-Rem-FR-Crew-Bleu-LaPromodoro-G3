@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ButtonNext from "./ButtonNext";
+import VisuelMinuteur from "./VisuelMinuteur";
 import "../styles/QuizDisplay.css";
 
 // eslint-disable-next-line react/prop-types
@@ -30,7 +31,6 @@ function QuizDisplay({ questionsData }) {
   // Fonction pour comparer les réponses
   const checkOption = () => {
     if (answered) {
-      // ici on stocke la reponse correcte qui se situe
       const correctOption = currentQuestion.correct_option;
       if (selectedAnswer === correctOption) {
         setCountScore(countScore + 1);
@@ -99,6 +99,7 @@ function QuizDisplay({ questionsData }) {
                   </button>
                 ))}
               </div>
+              <VisuelMinuteur className="hideVisuelMinuteur" />
               <ButtonNext onClick={handleNextQuestion} />
             </>
           ) : (

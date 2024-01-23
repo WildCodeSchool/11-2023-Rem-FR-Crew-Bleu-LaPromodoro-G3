@@ -15,3 +15,8 @@
   font-size: 20px;
   color: green;
 }
+.containerMinuteur {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
