@@ -7,6 +7,7 @@ import picture from "../assets/canard.png";
 import Modal from "../components/Modal";
 import { images } from "../assets/images/images";
 import { useTheme } from "../Context/ThemeContext";
+import DifficultySelector from "../components/DifficultySelector";
 import QuizDisplay from "../components/QuizDisplay";
 import "../styles/Quiz.css";
 
@@ -16,9 +17,15 @@ function Quiz() {
   // console.info(`category ${selectedCategory}`);
   const defaultDifficulty = "hard";
   const [questionsData, setQuestionsData] = useState([null]);
+  const [selectedDifficulty, setSelectedDifficulty] =
+    useState(defaultDifficulty);
+  const handleDifficultyChange = (difficulty) => {
+    setSelectedDifficulty(difficulty);
+  };
+
   useEffect(() => {
     fetch(
-      `http://localhost:4748/quiz/category/${selectedCategory}/difficulty/${defaultDifficulty}`
+      `http://localhost:4748/quiz/category/${selectedCategory}/difficulty/${selectedDifficulty}`
     )
       .then((res) => {
         if (!res.ok) {
@@ -37,56 +44,7 @@ function Quiz() {
       .catch((error) => {
         console.error("Erreur lors de la récupération des questions :", error);
       });
-  }, [selectedCategory, defaultDifficulty]);
-  // console.info(questionsData.length);
-  // const questions = [];
-  // // on recupere les questions de quiz avec map on les mets dans array questions
-  // questionsData.map((question) => questions.push(question));
-  // console.info(questions);
-  // // eslint-disable-next-line react/prop-types
-  // const totalQuestions = questions.length;
-  // console.info(totalQuestions);
-  // // State pour vérifier l'index de question
-  // const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  // // Ici on stocke la question, les options et la réponse correcte affichée
-  // const currentQuestion = questions[currentQuestionIndex];
-  // console.info(currentQuestion);
-  // // State pour vérifier si la personne a déjà choisi sa réponse
-  // const [answered, setAnswered] = useState(false);
-  // // State pour pouvoir comparer la réponse choisie avec la réponse correcte
-  // const [selectedAnswer, setSelectedAnswer] = useState(null);
-  // // State pour compter les bonnes réponses de l'utilisateur
-  // const [countScore, setCountScore] = useState(0);
-  // // State pour gérer l'affichage du résultat final
-  // const [quizCompleted, setQuizCompleted] = useState(false);
-
-  // // Fonction pour comparer les réponses
-  // const checkOption = () => {
-  //   if (answered) {
-  //     // ici on stocke la reponse correcte qui se situe
-  //     const correctOption = currentQuestion.correct_option;
-  //     if (selectedAnswer === correctOption) {
-  //       setCountScore(countScore + 1);
-  //     }
-  //   }
-  // };
-  // useEffect(() => {
-  //   // Cette fonction sera appelée à chaque mise à jour de selectedAnswer pour comparer les réponses
-  //   checkOption();
-  // }, [selectedAnswer]);
-
-  // // Fonction pour passer à la question suivante
-  // const handleNextQuestion = () => {
-  //   setAnswered(false);
-  //   setSelectedAnswer(null);
-  //   if (currentQuestionIndex < totalQuestions - 1) {
-  //     setCurrentQuestionIndex(currentQuestionIndex + 1);
-  //   } else {
-  //     // Si toutes les questions ont été répondues setQuiCompleted recoit true dans son état et le resultat s'affichera sur l'écran à la place de quiz
-  //     setQuizCompleted(true);
-  //   }
-  // };
-
+  }, [selectedCategory, selectedDifficulty]);
   const [avatarProfile, setAvatarProfile] = useState(picture);
   const [isModalOpen, setIsModalOpen] = useState(false);
   // eslint-disable-next-line no-unused-vars
@@ -118,6 +76,10 @@ function Quiz() {
   return (
     <div style={{ backgroundImage: `url(${selectedTheme})` }}>
       <Navbar2 openModal={openModal} avatarProfile={avatarProfile} />
+      <DifficultySelector
+        selectedDifficulty={selectedDifficulty}
+        onChangeDifficulty={handleDifficultyChange}
+      />
       <Presentateur
         goodTexts="Results"
         idContainer="quizPresPosition"
