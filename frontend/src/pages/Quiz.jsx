@@ -13,12 +13,12 @@ import "../styles/Quiz.css";
 function Quiz() {
   const location = useLocation();
   const selectedCategory = location.state?.selectedCategory || "CultureG";
-  console.info(`category ${selectedCategory}`);
+  // console.info(`category ${selectedCategory}`);
   const defaultDifficulty = "hard";
   const [questionsData, setQuestionsData] = useState([null]);
   useEffect(() => {
     fetch(
-      `http://localhost:4747/quiz/category/${selectedCategory}/difficulty/${defaultDifficulty}`
+      `http://localhost:4748/quiz/category/${selectedCategory}/difficulty/${defaultDifficulty}`
     )
       .then((res) => {
         if (!res.ok) {
@@ -29,7 +29,7 @@ function Quiz() {
       .then((data) => {
         if (Array.isArray(data.questions)) {
           setQuestionsData(data.questions);
-          console.info(data);
+          // console.info(data);
         } else {
           console.error("Invalid data structure received from the API.");
         }

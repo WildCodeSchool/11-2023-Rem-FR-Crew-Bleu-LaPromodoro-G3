@@ -5,6 +5,8 @@ import "../styles/QuizDisplay.css";
 
 // eslint-disable-next-line react/prop-types
 function QuizDisplay({ questionsData }) {
+  console.info(questionsData);
+
   // State pour vérifier si la personne a déjà choisi sa réponse
   const [answered, setAnswered] = useState(false);
   // State pour compter les bonnes réponses de l'utilisateur
