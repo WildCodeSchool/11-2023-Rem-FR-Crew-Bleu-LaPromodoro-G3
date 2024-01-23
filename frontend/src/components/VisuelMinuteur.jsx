@@ -13,9 +13,9 @@ function VisuelMinuteur() {
   }, []);
   return (
     <div className="container">
-      {progress}
+      {/* {progress} */}
       <ProgressBar
-        completed={progress}
+        completed={`${progress}`}
         maxCompleted={15}
         className="barCompleted"
         bgColor="#f4091a"
