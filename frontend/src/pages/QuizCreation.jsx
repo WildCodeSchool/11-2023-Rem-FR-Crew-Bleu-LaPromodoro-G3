@@ -115,7 +115,7 @@ function QuizCreator() {
       }));
 
       // sauvegarder les questions
-      const response = await fetch("http://localhost:4747/quiz/question/new", {
+      const response = await fetch("http://localhost:4748/quiz/question/new", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(questionsToSave),

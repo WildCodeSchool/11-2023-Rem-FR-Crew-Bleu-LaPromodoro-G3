@@ -7,7 +7,7 @@ function QuizViewer() {
   const [error] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:4747/quiz/question-and-answers")
+    fetch("http://localhost:4748/quiz/question-and-answers")
       .then((response) => {
         if (!response.ok) {
           throw new Error("La réponse du réseau n'était pas valide");
