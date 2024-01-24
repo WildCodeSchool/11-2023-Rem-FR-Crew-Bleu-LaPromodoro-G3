@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ButtonNext from "./ButtonNext";
 import VisuelMinuteur from "./VisuelMinuteur";
+import BadScore from "../assets/badScore.gif";
+import GoodScore from "../assets/goodScore.gif";
 import AnimationQuiz from "./AnimationQuiz";
 import "../styles/QuizDisplay.css";
 
@@ -110,12 +112,20 @@ function QuizDisplay({ questionsData }) {
             textProps={textProps}
             idContainer="resultContainerPosition"
           />
+            <div className="congratulationsMessage">
+            {countScore <= 5 ? (
+              <img src={BadScore} alt="badscore" />
+            ) : (
+              <img src={GoodScore} alt="goodscore" />
+            )}
+          </div>
           <Link to="/" className="linkHomePage">
             <button type="button" className="buttonHomePage">
               Page d'accueil
             </button>
           </Link>
         </>
+
       ) : (
         <div className="quizDisplay">
           {currentQuestion ? (

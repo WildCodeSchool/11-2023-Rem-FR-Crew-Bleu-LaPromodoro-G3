@@ -69,7 +69,8 @@
 .finalScore {
   display: flex;
   flex-direction: column;
-  margin: 18% 0 0 30%;
+  justify-content: center;
+  margin: 15% 0 0 30%;
   width: 70%;
   height: 50%;
 }
@@ -79,7 +80,7 @@
   background-color: #fafafa;
   padding: 10px;
   border-radius: 20px;
-  margin-bottom: 30%;
+  margin-bottom: 2%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,8 +88,13 @@
   font-weight: 600;
 }
 
+.congratulationsMessage img {
+  margin-left: 3rem;
+  border-radius: 2rem;
+
 .congratulations {
   font-size: 5rem;
+
 }
 
 .linkHomePage {
@@ -127,6 +133,13 @@
 }
 
 @media screen and (min-width: 1800px) {
+  #questionDisplay p,
+  #quizOptions button {
+    font-size: 1.8rem;
+  }
+  .finalScore {
+    margin: 19% 0 0 30%;
+  }
   .buttonHomePage {
     margin-left: 85%;
   }
@@ -135,11 +148,14 @@
     background-color: #fafafa;
     padding: 10px;
     border-radius: 20px;
-    margin-bottom: 27%;
+    margin-bottom: 2%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
     font-weight: 600;
+  }
+  .congratulationsMessage img {
+    margin-left: 10rem;
   }
 }
