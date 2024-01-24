@@ -13,6 +13,7 @@
   position: absolute;
   top: 8%;
   left: 2%;
+
   button {
     display: none !important;
   }
@@ -51,10 +52,10 @@ span.textTheme {
 @media screen and (min-width: 1800px) {
   .pageStyle {
     top: 10%;
-    left: 10%;
-    width: 15%;
+    width: 10%;
     height: 70%;
   }
+
   .imgCarousel {
     width: 70%;
   }

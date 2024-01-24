@@ -112,7 +112,7 @@ function QuizDisplay({ questionsData }) {
             textProps={textProps}
             idContainer="resultContainerPosition"
           />
-            <div className="congratulationsMessage">
+          <div className="congratulationsMessage">
             {countScore <= 5 ? (
               <img src={BadScore} alt="badscore" />
             ) : (
@@ -125,7 +125,6 @@ function QuizDisplay({ questionsData }) {
             </button>
           </Link>
         </>
-
       ) : (
         <div className="quizDisplay">
           {currentQuestion ? (
