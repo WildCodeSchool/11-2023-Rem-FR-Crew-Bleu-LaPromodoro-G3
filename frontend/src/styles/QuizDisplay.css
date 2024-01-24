@@ -116,6 +116,10 @@
 }
 
 @media screen and (min-width: 1800px) {
+  #questionDisplay p,
+  #quizOptions button {
+    font-size: 1.8rem;
+  }
   .finalScore {
     margin: 19% 0 0 30%;
   }

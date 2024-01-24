@@ -20,12 +20,15 @@ function Navbar2({ openModal }) {
             <img src={image} alt="logo" className="navbar-logo" />
           </Link>
         </div>
-        <img
-          src={profileImage}
-          alt="profile"
-          className="profile-pic"
-          onClick={handleProfileClick}
-        />
+        <div className="profileContainer">
+          <img
+            src={profileImage}
+            alt="profile"
+            className="profile-pic"
+            onClick={handleProfileClick}
+          />
+          <span>user</span>
+        </div>
       </div>
     </nav>
   );
