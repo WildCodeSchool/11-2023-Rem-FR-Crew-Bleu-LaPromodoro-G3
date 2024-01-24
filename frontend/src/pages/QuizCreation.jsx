@@ -171,7 +171,11 @@ function QuizCreator() {
             onChange={(e) => setCurrentQuestion(e.target.value)}
           />
 
-          <button type="button" onClick={handleAddQuestion}>
+          <button
+            className="addQuestion"
+            type="button"
+            onClick={handleAddQuestion}
+          >
             Ajouter Question
           </button>
         </form>
@@ -184,7 +188,11 @@ function QuizCreator() {
               value={currentOption}
               onChange={(e) => setCurrentOption(e.target.value)}
             />
-            <button type="button" onClick={() => handleAddOption(index)}>
+            <button
+              className="addAnswer"
+              type="button"
+              onClick={() => handleAddOption(index)}
+            >
               Ajouter Réponse
             </button>
             {question.options.map((option, optionIndex) => (
@@ -192,6 +200,7 @@ function QuizCreator() {
               <div key={optionIndex}>
                 <p>{option.text}</p>
                 <button
+                  className="markCorrect"
                   type="button"
                   onClick={() => handleMarkAsCorrectOption(index, optionIndex)}
                 >
@@ -201,7 +210,7 @@ function QuizCreator() {
             ))}
           </div>
         ))}
-        <button type="button" onClick={handleSaveQuiz}>
+        <button className="saveQuiz" type="button" onClick={handleSaveQuiz}>
           Enregistrer le Quiz
         </button>
       </div>

@@ -32,7 +32,10 @@ textarea {
   font-size: 14px;
 }
 
-button {
+.addQuestion,
+.addAnswer,
+.markCorrect,
+.saveQuiz {
   background-color: #992be2;
   color: white;
   padding: 8px 16px;
@@ -40,10 +43,6 @@ button {
   font-size: 14px;
   cursor: pointer;
   margin-bottom: 10px;
-}
-
-button:hover {
-  background-color: #e8408c;
 }
 
 #response {

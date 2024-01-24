@@ -1,0 +1,153 @@
+.difficultySection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #fafafa;
+  filter: drop-shadow(0px 10px 4px #d5346a);
+  transition: 0.3s;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+#difficultContainer {
+  width: 20rem;
+  height: 60px;
+  background-color: #fff;
+  border: 2px solid #d5346a;
+  border-radius: 34px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 4px 4px #d5346a;
+  margin: 10px;
+}
+
+.difficultSelect {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  appearance: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 34px;
+}
+.difficultSelect:hover,
+.btn.span:hover {
+  background-color: #d5346a47;
+  color: #fff;
+}
+.radioLabel {
+  width: 25%;
+  height: 60%;
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
+.btn {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.span {
+  color: #d5346a;
+  font-size: 1rem;
+}
+
+.difficultSelect:checked + .btn {
+  background-color: #d5346a;
+}
+
+.difficultSelect:checked + .btn .span {
+  color: #fff;
+}
+@media screen and (min-width: 1800px) {
+  .difficultySection {
+    font-size: 2rem;
+  }
+  #difficultContainer {
+    width: 500px;
+    height: 100px;
+  }
+  .span {
+    font-size: 1.5rem;
+  }
+}
+/* .difficultySection {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #fafafa;
+  filter: drop-shadow(0px 10px 4px rgba(28, 25, 25, 0.82));
+  transition: 0.3s;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+#difficultContainer {
+  position: relative;
+  width: 250px;
+  height: 36px;
+  background-color: #fff;
+  border: 2px solid #323232;
+  border-radius: 34px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 4px 4px #323232;
+  margin: 10px;
+}
+
+.difficultSelect {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  appearance: none;
+  cursor: pointer;
+  border: none;
+}
+
+.radioLabel {
+  width: 80.5px;
+  height: 28px;
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
+.btn {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.span {
+  color: #323232;
+}
+
+.difficultSelect:checked + .btn {
+  background-color: #323232;
+}
+
+.difficultSelect:checked + .btn .span {
+  color: #fff;
+} */
