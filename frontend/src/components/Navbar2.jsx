@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import image from "../assets/Group 33.png";
 import { useAvatar } from "../Context/AvatarContext";
 
@@ -14,7 +15,11 @@ function Navbar2({ openModal }) {
   return (
     <nav className="profile-nav">
       <div className="right-section">
-        <img src={image} alt="logo" className="navbar-logo" />
+        <div className="navbar-logo">
+          <Link to="/">
+            <img src={image} alt="logo" className="navbar-logo" />
+          </Link>
+        </div>
         <img
           src={profileImage}
           alt="profile"
