@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import { useState, useCallback, useEffect } from "react";
-import Presentateur from "../components/Presentateur";
 import Navbar2 from "../components/Navbar2";
 import picture from "../assets/canard.png";
 import Modal from "../components/Modal";
@@ -101,11 +100,6 @@ function Quiz() {
       ) : (
         <div className="alertePresentateur"> </div>
       )}
-      <Presentateur
-        goodTexts="Results"
-        idContainer="quizPresPosition"
-        idSpeech="quizSpeechPosition"
-      />
     </div>
   );
 }
