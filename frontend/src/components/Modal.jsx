@@ -5,6 +5,8 @@ import { images } from "../assets/images/images";
 import { themes } from "../assets/images/theme";
 import "../styles/Modal.css";
 import { useAvatar } from "../Context/AvatarContext";
+import defaultAvatar from "../assets/defaultAvatar";
+import Bonus from "./Bonus";
 
 function Modal({ showModal, setShowModal, setUser }) {
   // const {showModal, setShowModal, changeAvatarProfile, setUser, updateUserInformation, setSelectedTheme } = props
@@ -45,7 +47,10 @@ function Modal({ showModal, setShowModal, setUser }) {
 
   // bouton pour enregistrer les modifs
   function handdleAddChange() {
-    const newImage = images[newSelectedImageIndex];
+    const newImage =
+      newSelectedImageIndex !== undefined
+        ? images[newSelectedImageIndex]
+        : defaultAvatar;
 
     updateProfileImage(newImage);
     setAddChange(true);
@@ -156,16 +161,6 @@ function Modal({ showModal, setShowModal, setUser }) {
             ))}
           </div>
 
-          {/* <div className="Facturation"> 
-      <label htmlFor="facturation">Facturation:</label>
-              <div className="Historique"> 
-              <label htmlFor="historique">Montant € date </label>
-              {/* <ul><li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li></ul> */}
-
           <div className="button-add-changment">
             <button
               type="submit"
@@ -175,17 +170,11 @@ function Modal({ showModal, setShowModal, setUser }) {
               Enregistrer les changements
             </button>
           </div>
+          <Bonus />
         </div>
       ) : null}
     </div>
   );
 }
-// Modal.propTypes = {
-//   showModal: PropTypes.bool.isRequired,
-//   setShowModal: PropTypes.bool.isRequired,
-//   changeAvatarProfile: PropTypes.string.isRequired,
-//   setUser: PropTypes.string.isRequired,
-//   updateUserInformation: PropTypes.string.isRequired,
-//   setSelectedTheme: PropTypes.arrayOf(PropTypes.string).isRequired,}
 
 export default Modal;
