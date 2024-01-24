@@ -22,7 +22,6 @@ function Quiz() {
   const handleDifficultyChange = (difficulty) => {
     setSelectedDifficulty(difficulty);
   };
-
   useEffect(() => {
     fetch(
       `http://localhost:4748/quiz/category/${selectedCategory}/difficulty/${selectedDifficulty}`
@@ -60,7 +59,6 @@ function Quiz() {
     },
     []
   );
-
   const changeAvatarProfile = useCallback((index) => {
     setAvatarProfile(images[index]);
   }, []);
@@ -93,6 +91,7 @@ function Quiz() {
         updateUserInformation={updateUserInformation}
       />
       <QuizDisplay questionsData={questionsData} />
+
       <VisuelMinuteur />
     </div>
   );

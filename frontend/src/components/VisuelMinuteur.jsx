@@ -1,19 +1,28 @@
+import React, { useState, useEffect } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
-import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import "../styles/VisuelMinuteur.css";
 
-function VisuelMinuteur() {
+function VisuelMinuteur({ onTimeout }) {
   const [progress, setProgress] = useState(15);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prevState) => (prevState > 0 ? prevState - 1 : 0));
-    }, 1000);
+  let interval;
 
+  useEffect(() => {
+    interval = setInterval(() => {
+      setProgress((prevState) => {
+        const newProgress = prevState > 0 ? prevState - 1 : 0;
+        if (newProgress === 0) {
+          clearInterval(interval);
+          onTimeout();
+        }
+        return newProgress;
+      });
+    }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [onTimeout]);
+
   return (
     <div className="container">
-      {/* {progress} */}
       <ProgressBar
         completed={`${progress}`}
         maxCompleted={15}
@@ -23,5 +32,9 @@ function VisuelMinuteur() {
     </div>
   );
 }
+
+VisuelMinuteur.propTypes = {
+  onTimeout: PropTypes.func.isRequired,
+};
 
 export default VisuelMinuteur;
