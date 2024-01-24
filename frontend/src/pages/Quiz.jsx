@@ -2,25 +2,32 @@ import { useLocation } from "react-router-dom";
 import { useState, useCallback, useEffect } from "react";
 import Presentateur from "../components/Presentateur";
 import Navbar2 from "../components/Navbar2";
-import VisuelMinuteur from "../components/VisuelMinuteur";
+// import VisuelMinuteur from "../components/VisuelMinuteur";
 import picture from "../assets/canard.png";
 import Modal from "../components/Modal";
 import { images } from "../assets/images/images";
 import { useTheme } from "../Context/ThemeContext";
 import DifficultySelector from "../components/DifficultySelector";
+import ButtonStartQuiz from "../components/ButtonStartQuiz";
 import QuizDisplay from "../components/QuizDisplay";
 import "../styles/Quiz.css";
 
 function Quiz() {
   const location = useLocation();
   const selectedCategory = location.state?.selectedCategory || "CultureG";
-  // console.info(`category ${selectedCategory}`);
   const defaultDifficulty = "hard";
   const [questionsData, setQuestionsData] = useState([null]);
   const [selectedDifficulty, setSelectedDifficulty] =
     useState(defaultDifficulty);
   const handleDifficultyChange = (difficulty) => {
     setSelectedDifficulty(difficulty);
+  };
+  const [click, setClick] = useState(false);
+  const [startQuiz, setStartQuiz] = useState("startQuizShow");
+
+  const handleStartQuiz = () => {
+    setClick(true);
+    setStartQuiz("startQuizHide");
   };
 
   useEffect(() => {
@@ -76,24 +83,34 @@ function Quiz() {
   return (
     <div style={{ backgroundImage: `url(${selectedTheme})` }}>
       <Navbar2 openModal={openModal} avatarProfile={avatarProfile} />
-      <DifficultySelector
-        selectedDifficulty={selectedDifficulty}
-        onChangeDifficulty={handleDifficultyChange}
-      />
-      <Presentateur
-        goodTexts="Results"
-        idContainer="quizPresPosition"
-        idSpeech="quizSpeechPosition"
-      />
-
       <Modal
         showModal={isModalOpen}
         setShowModal={closeModal}
         changeAvatarProfile={changeAvatarProfile}
         updateUserInformation={updateUserInformation}
       />
-      <QuizDisplay questionsData={questionsData} />
-      <VisuelMinuteur />
+      <div className={`startQuizShow ${startQuiz} `}>
+        <DifficultySelector
+          selectedDifficulty={selectedDifficulty}
+          onChangeDifficulty={handleDifficultyChange}
+        />
+        <ButtonStartQuiz handleStartQuiz={handleStartQuiz} />
+      </div>
+      {click ? (
+        <div>
+          <QuizDisplay questionsData={questionsData} />
+        </div>
+      ) : (
+        <div className="alertePresentateur">
+          {" "}
+          Choose difficulty and click on start{" "}
+        </div>
+      )}
+      <Presentateur
+        goodTexts="Results"
+        idContainer="quizPresPosition"
+        idSpeech="quizSpeechPosition"
+      />
     </div>
   );
 }

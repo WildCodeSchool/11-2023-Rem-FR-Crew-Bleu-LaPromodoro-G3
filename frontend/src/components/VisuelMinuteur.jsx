@@ -12,8 +12,7 @@ function VisuelMinuteur() {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="container">
-      {/* {progress} */}
+    <div className="containerMinuteur">
       <ProgressBar
         completed={`${progress}`}
         maxCompleted={15}
