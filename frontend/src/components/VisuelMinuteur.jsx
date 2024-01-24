@@ -34,7 +34,7 @@ function VisuelMinuteur({
     setTimeElapsed,
   ]);
   return (
-    <div className="container">
+    <div className="containerMinuteur">
       <ProgressBar
         completed={`${initialProgress}`}
         maxCompleted={15}

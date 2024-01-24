@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import playButtonImg from "../assets/images/music.png";
-import "./BackgroundMusic.css";
+import "../styles/BackgroundMusic.css";
 
 function BackgroundMusic({ musicUrl, volume = 1.0 }) {
   const audioRef = useRef(null);
