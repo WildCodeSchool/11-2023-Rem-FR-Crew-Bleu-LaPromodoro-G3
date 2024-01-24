@@ -17,11 +17,6 @@
   right: 15%;
 }
 
-#quizPresPosition {
-  bottom: -100px;
-  left: 0%;
-}
-
 .presSpeech {
   position: absolute;
   background-color: #fafafa;
@@ -47,21 +42,11 @@
   right: 60%;
 }
 
-#quizSpeechPosition {
-  left: 100%;
-}
-
 #accueilSpeechPosition::after,
 #resultsSpeechPosition::after {
   top: 100%;
   right: 30px;
   rotate: 180deg;
-}
-
-#quizSpeechPosition::after {
-  top: 100%;
-  left: 30px;
-  rotate: 90deg;
 }
 
 .presSpeech,
@@ -88,6 +73,7 @@
   #accueilPresContainer {
     right: 20%;
   }
+
   #presenter {
     height: 800px;
   }

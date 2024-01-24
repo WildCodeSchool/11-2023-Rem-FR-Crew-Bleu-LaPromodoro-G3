@@ -1,0 +1,44 @@
+#quizPresPosition {
+  left: -50%;
+  bottom: -150px;
+}
+
+#quizSpeechPosition {
+  position: relative;
+  max-width: 50%;
+  left: 50%;
+  scale: 1.2;
+}
+
+#quizSpeechPosition::after {
+  top: 95%;
+  left: 30px;
+  rotate: 90deg;
+}
+
+.animate {
+  content: url(/src/assets/Presentateur/pres2light.png);
+  animation: changeImage infinite 0.7s;
+}
+
+@keyframes changeImage {
+  0% {
+    content: url(/src/assets/Presentateur/pres3light.png);
+  }
+
+  25% {
+    content: url(/src/assets/Presentateur/pres4light.png);
+  }
+
+  50% {
+    content: url(/src/assets/Presentateur/pres5light.png);
+  }
+
+  75% {
+    content: url(/src/assets/Presentateur/pres6light.png);
+  }
+
+  100% {
+    content: url(/src/assets/Presentateur/pres7light.png);
+  }
+}

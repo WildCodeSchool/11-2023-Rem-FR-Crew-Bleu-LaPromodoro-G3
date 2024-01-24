@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ButtonNext from "./ButtonNext";
+import AnimationQuiz from "./AnimationQuiz";
 import "../styles/QuizDisplay.css";
 
 // eslint-disable-next-line react/prop-types
@@ -54,6 +55,11 @@ function QuizDisplay({ questionsData }) {
     }
   };
 
+  const handleAnimationComplete = () => {
+    console.info("Animation complète !");
+    // Ajoutez ici le code que vous souhaitez exécuter une fois l'animation terminée
+  };
+
   return (
     <div>
       {quizCompleted ? (
@@ -71,10 +77,14 @@ function QuizDisplay({ questionsData }) {
         </div>
       ) : (
         <div className="quizDisplay">
+          <AnimationQuiz question={currentQuestion.question} />
           {currentQuestion ? (
             <>
               <div id="questionDisplay">
-                <p>{currentQuestion.question}</p>
+                <AnimationQuiz
+                  question="Quelle est la théorie scientifique..."
+                  onAnimationComplete={handleAnimationComplete}
+                />
               </div>
               <div id="quizOptions">
                 {currentQuestion.options.map((option, index) => (
