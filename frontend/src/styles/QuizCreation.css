@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 50%;
-  left: 15%;
-  transform: translate(-50%, -50%);
+  top: 15%;
+  left: 5%;
+  width: 20%;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10%;
@@ -16,13 +16,15 @@
 }
 
 h1,
-H2,
+h2,
 h3,
 h4 {
   color: rgb(0, 6, 9);
 }
 
-input {
+input,
+select,
+textarea {
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
@@ -32,7 +34,6 @@ input {
 
 button {
   background-color: #992be2;
-  /* width: 80px; */
   color: white;
   padding: 8px 16px;
   border: none;
@@ -56,6 +57,7 @@ button:hover {
 .answers {
   margin-bottom: 10px;
 }
+
 .answer {
   background-color: #ddd;
   padding: 8px;
@@ -66,6 +68,7 @@ button:hover {
   right: 20px;
   bottom: 10%;
 }
+
 #speechContainer {
   left: -70%;
 }

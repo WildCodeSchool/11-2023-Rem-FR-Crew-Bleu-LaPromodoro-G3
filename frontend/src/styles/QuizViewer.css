@@ -1,0 +1,36 @@
+.inventoryCreation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 30%;
+  top: 15%;
+}
+
+#questionResponse {
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.viewListing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 40%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 100px;
+  border-radius: 10px;
+}
+
+#listingQuestion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
