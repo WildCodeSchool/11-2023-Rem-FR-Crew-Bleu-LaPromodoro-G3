@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ButtonNext from "./ButtonNext";
 import VisuelMinuteur from "./VisuelMinuteur";
+import AnimationQuiz from "./AnimationQuiz";
 import "../styles/QuizDisplay.css";
 
 // eslint-disable-next-line react/prop-types
 function QuizDisplay({ questionsData }) {
-  console.info(questionsData);
   const [initialProgress, setInitialProgress] = useState(15);
   const [progress, setProgress] = useState(15);
   const [isAnswerSelected, setIsAnswerSelected] = useState(false);
@@ -33,6 +33,8 @@ function QuizDisplay({ questionsData }) {
   const totalQuestions = questions.length;
   // Ici on stocke la question, les options et la réponse correcte affichée
   const currentQuestion = questions[currentQuestionIndex];
+  const [isTextAnimating, setIsTextAnimating] = useState(true);
+  const [textProps, setTextProps] = useState(null);
 
   const checkOption = () => {
     let scenario; // créé une variable qui va dépendre de answered et timeElapsed
@@ -85,8 +87,12 @@ function QuizDisplay({ questionsData }) {
     setTimeElapsed(false);
     setIsAnswerSelected(false);
     setInitialProgress(15);
+
+    // Assurez-vous de définir ces états correctement selon votre logique
+    setIsTextAnimating(true);
+    setTextProps(/* À définir selon votre logique */);
+
     if (currentQuestionIndex < totalQuestions - 1) {
-      // Réinitialiser la barre de progression à la valeur initiale
       setProgress(initialProgress);
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
@@ -97,24 +103,31 @@ function QuizDisplay({ questionsData }) {
   return (
     <div>
       {quizCompleted ? (
-        <div className="finalScore">
-          <div className="messageScore">
-            <p>{`Ton score final est ${countScore} / 10`}</p>
-          </div>
-          <div>
-            <Link to="/" className="linkHomePage">
-              <button type="button" className="buttonHomePage">
-                Page d'accueil
-              </button>
-            </Link>
-          </div>
-        </div>
+        <>
+          <AnimationQuiz
+            question={`Ton score final est ${countScore} / 10`}
+            isTextAnimating={isTextAnimating}
+            textProps={textProps}
+            idContainer="resultContainerPosition"
+          />
+          <Link to="/" className="linkHomePage">
+            <button type="button" className="buttonHomePage">
+              Page d'accueil
+            </button>
+          </Link>
+        </>
       ) : (
         <div className="quizDisplay">
           {currentQuestion ? (
             <>
               <div id="questionDisplay">
-                <p>{currentQuestion.question}</p>
+                <AnimationQuiz
+                  question={currentQuestion.question}
+                  isTextAnimating={isTextAnimating}
+                  textProps={textProps}
+                  idContainer="quizPresPosition"
+                />
+                <p>BOUH !!!</p>
               </div>
               <div id="quizOptions">
                 {currentQuestion.options.map((option, index) => {
