@@ -2,7 +2,6 @@ import { useLocation } from "react-router-dom";
 import { useState, useCallback, useEffect } from "react";
 import Presentateur from "../components/Presentateur";
 import Navbar2 from "../components/Navbar2";
-// import VisuelMinuteur from "../components/VisuelMinuteur";
 import picture from "../assets/canard.png";
 import Modal from "../components/Modal";
 import { images } from "../assets/images/images";
@@ -79,7 +78,6 @@ function Quiz() {
   const closeModal = useCallback(() => {
     setIsModalOpen(false);
   }, []);
-
   return (
     <div style={{ backgroundImage: `url(${selectedTheme})` }}>
       <Navbar2 openModal={openModal} avatarProfile={avatarProfile} />
@@ -101,10 +99,7 @@ function Quiz() {
           <QuizDisplay questionsData={questionsData} />
         </div>
       ) : (
-        <div className="alertePresentateur">
-          {" "}
-          Choose difficulty and click on start{" "}
-        </div>
+        <div className="alertePresentateur"> </div>
       )}
       <Presentateur
         goodTexts="Results"

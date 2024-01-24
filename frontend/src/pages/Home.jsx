@@ -5,7 +5,6 @@ import ThemePage from "../components/ThemePage";
 import Navbar1 from "../components/Navbar1";
 import backgroundMusicFile from "../assets/8-bit-arcade-138828.mp3";
 import BackgroundMusic from "../components/BackgroundMusic";
-
 import Footer from "../components/Footer";
 import ThemeChangeProvider from "../Context/ThemeContext";
 import "../styles/Home.css";

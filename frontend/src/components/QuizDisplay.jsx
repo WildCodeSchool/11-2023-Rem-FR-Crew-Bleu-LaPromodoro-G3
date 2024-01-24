@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ButtonNext from "./ButtonNext";
@@ -7,7 +8,12 @@ import "../styles/QuizDisplay.css";
 // eslint-disable-next-line react/prop-types
 function QuizDisplay({ questionsData }) {
   console.info(questionsData);
-
+  const [initialProgress, setInitialProgress] = useState(15);
+  const [progress, setProgress] = useState(15);
+  const [isAnswerSelected, setIsAnswerSelected] = useState(false);
+  const [timeElapsed, setTimeElapsed] = useState(false);
+  const [showAnswers, setShowAnswers] = useState(false);
+  const [correctAnswerToShow, setCorrectAnswerToShow] = useState(null);
   // State pour vérifier si la personne a déjà choisi sa réponse
   const [answered, setAnswered] = useState(false);
   // State pour compter les bonnes réponses de l'utilisateur
@@ -28,28 +34,62 @@ function QuizDisplay({ questionsData }) {
   // Ici on stocke la question, les options et la réponse correcte affichée
   const currentQuestion = questions[currentQuestionIndex];
 
-  // Fonction pour comparer les réponses
   const checkOption = () => {
+    let scenario; // créé une variable qui va dépendre de answered et timeElapsed
     if (answered) {
-      const correctOption = currentQuestion.correct_option;
-      if (selectedAnswer === correctOption) {
+      scenario = // Ici deux cas, si la personne répond ou si le temps est écoulé ce qui va paramettrer mon scénario
+        selectedAnswer === currentQuestion.correct_option
+          ? "correct"
+          : "incorrect";
+    } else if (timeElapsed) {
+      scenario = "timeElapsed";
+    }
+    switch (scenario) {
+      case "correct":
+        // L'utilisateur a répondu correctement
         setCountScore(countScore + 1);
-      }
+        setCorrectAnswerToShow(currentQuestion.correct_option);
+        setShowAnswers(true);
+
+        setIsAnswerSelected(true);
+        break;
+
+      case "incorrect":
+        // L'utilisateur a répondu incorrectement
+        setCorrectAnswerToShow(currentQuestion.correct_option);
+        setShowAnswers(true);
+        setIsAnswerSelected(true);
+        break;
+
+      case "timeElapsed":
+        // Le temps est écoulé sans réponse
+        setCorrectAnswerToShow(currentQuestion.correct_option);
+        setShowAnswers(true);
+        break;
+
+      default:
+        break;
     }
   };
-  useEffect(() => {
-    // Cette fonction sera appelée à chaque mise à jour de selectedAnswer pour comparer les réponses
-    checkOption();
-  }, [selectedAnswer]);
 
+  useEffect(() => {
+    // Appeler checkOption à chaque fois que selectedAnswer change ou que le temps s'écoule
+    checkOption();
+  }, [selectedAnswer, timeElapsed]);
   // Fonction pour passer à la question suivante
   const handleNextQuestion = () => {
     setAnswered(false);
     setSelectedAnswer(null);
+    setShowAnswers(false);
+    setCorrectAnswerToShow(null);
+    setTimeElapsed(false);
+    setIsAnswerSelected(false);
+    setInitialProgress(15);
     if (currentQuestionIndex < totalQuestions - 1) {
+      // Réinitialiser la barre de progression à la valeur initiale
+      setProgress(initialProgress);
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      // Si toutes les questions ont été répondues setQuiCompleted recoit true dans son état et le resultat s'affichera sur l'écran à la place de quiz
       setQuizCompleted(true);
     }
   };
@@ -77,29 +117,41 @@ function QuizDisplay({ questionsData }) {
                 <p>{currentQuestion.question}</p>
               </div>
               <div id="quizOptions">
-                {currentQuestion.options.map((option, index) => (
-                  <button
-                    className={`option ${`option${index}`} ${
-                      // eslint-disable-next-line no-nested-ternary
-                      selectedAnswer === option && answered
-                        ? option === currentQuestion.correct_option
-                          ? "correctOption"
-                          : "wrongOption"
-                        : "option"
-                    } `}
-                    type="submit"
-                    onClick={() => {
-                      if (!answered) {
-                        setSelectedAnswer(option);
-                        setAnswered(true);
-                      }
-                    }}
-                  >
-                    {option}
-                  </button>
-                ))}
+                {currentQuestion.options.map((option, index) => {
+                  let buttonClass = `option option${index}`;
+                  if (showAnswers) {
+                    if (option === currentQuestion.correct_option) {
+                      buttonClass += " correctOption";
+                    } else if (option === selectedAnswer) {
+                      buttonClass += " wrongOption";
+                    }
+                  }
+
+                  return (
+                    <button
+                      className={buttonClass}
+                      type="submit"
+                      onClick={() => {
+                        if (!answered) {
+                          setSelectedAnswer(option);
+                          setAnswered(true);
+                        }
+                      }}
+                    >
+                      {option}
+                    </button>
+                  );
+                })}
               </div>
-              <VisuelMinuteur className="hideVisuelMinuteur" />
+              {!quizCompleted && (
+                <VisuelMinuteur
+                  initialProgress={progress}
+                  setProgress={setProgress}
+                  timeElapsed={timeElapsed}
+                  setTimeElapsed={setTimeElapsed}
+                  isAnswerSelected={isAnswerSelected}
+                />
+              )}
               <ButtonNext onClick={handleNextQuestion} />
             </>
           ) : (
