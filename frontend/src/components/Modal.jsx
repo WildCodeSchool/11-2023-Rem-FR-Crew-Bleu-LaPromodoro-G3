@@ -20,7 +20,7 @@ function Modal({ showModal, setShowModal, setUser }) {
 
   const { theme, changeTheme } = useTheme();
   const { updateProfileImage } = useAvatar();
-
+  const { updatePseudo } = useAvatar();
   // change le pseudo
   function handleInputChange(e) {
     setPseudo(e.target.value);
@@ -51,7 +51,7 @@ function Modal({ showModal, setShowModal, setUser }) {
       newSelectedImageIndex !== undefined
         ? images[newSelectedImageIndex]
         : defaultAvatar;
-
+    updatePseudo(pseudo);
     updateProfileImage(newImage);
     setAddChange(true);
     setSelectedImageIndex(newSelectedImageIndex);
