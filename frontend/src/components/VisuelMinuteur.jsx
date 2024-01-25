@@ -1,21 +1,42 @@
+/* eslint-disable react/prop-types */
 import ProgressBar from "@ramonak/react-progress-bar";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "../styles/VisuelMinuteur.css";
 
-function VisuelMinuteur() {
-  const [progress, setProgress] = useState(15);
+function VisuelMinuteur({
+  initialProgress,
+  setProgress,
+  timeElapsed,
+  setTimeElapsed,
+  isAnswerSelected,
+}) {
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prevState) => (prevState > 0 ? prevState - 1 : 0));
-    }, 1000);
+    let interval;
 
-    return () => clearInterval(interval);
-  }, []);
+    if (!isAnswerSelected && initialProgress > 0) {
+      interval = setInterval(() => {
+        setProgress((prevState) => prevState - 1);
+      }, 1000);
+    } else if (initialProgress === 0 && !timeElapsed) {
+      setTimeElapsed(true);
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [
+    initialProgress,
+    isAnswerSelected,
+    setProgress,
+    timeElapsed,
+    setTimeElapsed,
+  ]);
   return (
-    <div className="container">
-      {/* {progress} */}
+    <div className="containerMinuteur">
       <ProgressBar
-        completed={`${progress}`}
+        completed={`${initialProgress}`}
         maxCompleted={15}
         className="barCompleted"
         bgColor="#f4091a"

@@ -5,7 +5,7 @@ import defaultAvatar from "../assets/defaultAvatar";
 const initialImage = defaultAvatar[0];
 
 export const AvatarContext = createContext({
-  profileImage: [],
+  profileImage: null,
   updateProfileImage: () => {},
 });
 

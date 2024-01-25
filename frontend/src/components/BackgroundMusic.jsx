@@ -10,7 +10,7 @@ import {
   FaVolumeUp,
   FaVolumeMute,
 } from "react-icons/fa";
-import "./BackgroundMusic.css";
+import "../styles/BackgroundMusic.css";
 
 function BackgroundMusic({ musicUrl, volume = 1.0 }) {
   const audioRef = useRef(null);
