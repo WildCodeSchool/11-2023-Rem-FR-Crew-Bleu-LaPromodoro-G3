@@ -118,12 +118,12 @@ function QuizDisplay({ questionsData }) {
             ) : (
               <img src={GoodScore} alt="goodscore" />
             )}
+            <Link to="/" className="linkHomePage">
+              <button type="button" className="buttonHomePage">
+                Page d'accueil
+              </button>
+            </Link>
           </div>
-          <Link to="/" className="linkHomePage">
-            <button type="button" className="buttonHomePage">
-              Page d'accueil
-            </button>
-          </Link>
         </>
       ) : (
         <div className="quizDisplay">
@@ -136,7 +136,7 @@ function QuizDisplay({ questionsData }) {
                   textProps={textProps}
                   idContainer="quizPresPosition"
                 />
-                <p>BOUH !!!</p>
+                {/* <p>BOUH !!!</p> */}
               </div>
               <div id="quizOptions">
                 {currentQuestion.options.map((option, index) => {
@@ -148,7 +148,6 @@ function QuizDisplay({ questionsData }) {
                       buttonClass += " wrongOption";
                     }
                   }
-
                   return (
                     <button
                       className={buttonClass}

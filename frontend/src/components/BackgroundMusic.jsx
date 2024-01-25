@@ -43,7 +43,7 @@ function BackgroundMusic({ musicUrl, volume = 1.0 }) {
   };
 
   return (
-    <div className="ambientMusic">
+    <div className="ambientMusic ">
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <audio ref={audioRef} src={musicUrl} loop />
       <div className="musicControls">
@@ -55,7 +55,7 @@ function BackgroundMusic({ musicUrl, volume = 1.0 }) {
           {audioRef.current && !audioRef.current.paused ? (
             <FaPause />
           ) : (
-            <FaPlay />
+            <FaPlay className="playButton" />
           )}
         </button>
         <button

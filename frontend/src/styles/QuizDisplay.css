@@ -70,40 +70,29 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 15% 0 0 30%;
+  margin: 11% 0 0 30%;
   width: 70%;
   height: 50%;
 }
-
-.messageScore {
-  width: 50%;
-  background-color: #fafafa;
-  padding: 10px;
-  border-radius: 20px;
-  margin-bottom: 2%;
+.congratulationsMessage {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  font-size: 1.3rem;
-  font-weight: 600;
+  gap: 1rem;
+  position: absolute;
+  bottom: 5%;
+  left: 40%;
 }
-
 .congratulationsMessage img {
-  margin-left: 3rem;
-  border-radius: 2rem;
-}
-
-.congratulations {
-  font-size: 5rem;
+  border-radius: 1rem;
 }
 
 .linkHomePage {
   text-decoration: none;
-  background-color: #aae6e6;
+  /* background-color: #aae6e6; */
 }
 
 .buttonHomePage {
-  margin-left: 78%;
   background-color: #aae6e6;
   color: #fefefe;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -140,22 +129,10 @@
   .finalScore {
     margin: 19% 0 0 30%;
   }
-  .buttonHomePage {
-    margin-left: 85%;
-  }
-
-  .messageScore {
-    background-color: #fafafa;
-    padding: 10px;
-    border-radius: 20px;
-    margin-bottom: 2%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    font-weight: 600;
+  .congratulationsMessage {
+    left: 45%;
   }
   .congratulationsMessage img {
-    margin-left: 10rem;
+    width: 150%;
   }
 }

@@ -217,27 +217,28 @@ function QuizCreator() {
         <button className="saveQuiz" type="button" onClick={handleSaveQuiz}>
           Enregistrer le Quiz
         </button>
+        <div className="popup">
+          <ToastContainer
+            position="bottom-left"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            closeButton={false}
+          />
+        </div>
       </div>
       <div className="navPosition">
         <Navbar2 />
       </div>
-      <div className="popup">
-        <ToastContainer
-          position="bottom-left"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          closeButton={false}
-        />
-      </div>
+
       <div className="quizCreationPresenter">
         <Presentateur
-          goodTexts="Accueil"
+          goodTexts="Creation"
           idContainer="presenterCustom"
           idSpeech="speechContainer"
         />

@@ -5,6 +5,8 @@
   top: 15%;
   left: 5%;
   width: 20%;
+  height: 60vh;
+  overflow-y: auto;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10%;
@@ -27,7 +29,8 @@ h4 {
   padding: 8px;
   margin-bottom: 10px;
   border: 1px solid #ddd;
-  font-size: 14px;
+  font-size: 16px;
+  border-radius: 5px;
 }
 
 .addQuestion,
@@ -38,7 +41,7 @@ h4 {
   color: white;
   padding: 8px 16px;
   border: none;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   margin-bottom: 10px;
 }
@@ -62,12 +65,12 @@ h4 {
 }
 
 #presenterCustom {
-  right: 20px;
+  right: -3%;
   bottom: 10%;
 }
 
 #speechContainer {
-  left: -70%;
+  left: -60%;
 }
 
 #speechContainer::after {
@@ -76,9 +79,13 @@ h4 {
 }
 
 .popup {
-  position: relative;
+  /* position: relative;
   top: 65vh;
-  margin-left: 20vh;
+  margin-left: 20vh; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Toastify__toast--default {
