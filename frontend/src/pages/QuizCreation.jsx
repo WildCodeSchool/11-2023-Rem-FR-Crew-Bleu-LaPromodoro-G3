@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import Presentateur from "../components/Presentateur";
 import Navbar2 from "../components/Navbar2";
@@ -147,6 +147,7 @@ function QuizCreator() {
         <form ref={formRef}>
           <label htmlFor="category">Catégorie :</label>
           <input
+            className="Create"
             type="text"
             name="category"
             value={currentCategory}
@@ -155,6 +156,7 @@ function QuizCreator() {
 
           <label htmlFor="difficulty">Niveau de difficulté :</label>
           <select
+            className="Create"
             name="difficulty"
             value={currentDifficulty}
             onChange={(e) => setCurrentDifficulty(e.target.value)}
@@ -166,6 +168,7 @@ function QuizCreator() {
 
           <label htmlFor="question">Question :</label>
           <textarea
+            className="Create"
             name="question"
             value={currentQuestion}
             onChange={(e) => setCurrentQuestion(e.target.value)}
@@ -185,6 +188,7 @@ function QuizCreator() {
             <h3>{question.question}</h3>
             <h4>Ajouter Réponse</h4>
             <input
+              className="Create"
               value={currentOption}
               onChange={(e) => setCurrentOption(e.target.value)}
             />
