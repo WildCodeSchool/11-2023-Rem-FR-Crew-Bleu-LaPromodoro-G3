@@ -116,7 +116,7 @@ function QuizCreator() {
       </div>
       <div className="quizCreationPresenter">
         <Presentateur
-          goodTexts="Accueil"
+          goodTexts="Creation"
           idContainer="presenterCustom"
           idSpeech="speechContainer"
         />

@@ -135,7 +135,6 @@ function QuizDisplay({ questionsData }) {
                       buttonClass += " wrongOption";
                     }
                   }
-
                   return (
                     <button
                       className={buttonClass}

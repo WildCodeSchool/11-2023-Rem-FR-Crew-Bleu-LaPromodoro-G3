@@ -2,7 +2,8 @@
 import { Link } from "react-router-dom";
 import image from "../assets/Group 33.png";
 import { useAvatar } from "../Context/AvatarContext";
-
+import backgroundMusicFile from "../assets/8-bit-arcade-138828.mp3";
+import BackgroundMusic from "./BackgroundMusic";
 import "../styles/Navbar2.css";
 
 function Navbar2({ openModal }) {
@@ -21,13 +22,20 @@ function Navbar2({ openModal }) {
           </Link>
         </div>
         <div className="profileContainer">
-          <img
-            src={profileImage}
-            alt="profile"
-            className="profile-pic"
-            onClick={handleProfileClick}
+          <BackgroundMusic
+            className="buttonMusicQuiz"
+            musicUrl={backgroundMusicFile}
+            volume={0.02}
           />
-          <span>user</span>
+          <div className="containerUserProfile">
+            <img
+              src={profileImage}
+              alt="profile"
+              className="profile-pic"
+              onClick={handleProfileClick}
+            />
+            <span>user</span>
+          </div>
         </div>
       </div>
     </nav>

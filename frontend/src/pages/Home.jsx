@@ -25,7 +25,7 @@ function Home() {
       <div id="accueil">
         <div className="header-flex">
           <Navbar1 />
-          <BackgroundMusic musicUrl={backgroundMusicFile} volume={0.5} />
+          <BackgroundMusic musicUrl={backgroundMusicFile} volume={0.02} />
         </div>
         <ThemePage onCategorySelected={handleCategorySelected} />
         <Presentateur

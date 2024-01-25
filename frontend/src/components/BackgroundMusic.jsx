@@ -26,7 +26,7 @@ function BackgroundMusic({ musicUrl, volume = 1.0 }) {
   }, [volume]);
 
   return (
-    <div className="ambientMusic">
+    <div className="ambientMusic ">
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <audio ref={audioRef} src={musicUrl} loop />
       <img
