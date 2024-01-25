@@ -39,11 +39,13 @@
   border: none;
   border-radius: 34px;
 }
+
 .difficultSelect:hover,
 .btn.span:hover {
   background-color: #d5346a47;
   color: #fff;
 }
+
 .radioLabel {
   width: 25%;
   height: 60%;
@@ -74,18 +76,22 @@
 .difficultSelect:checked + .btn .span {
   color: #fff;
 }
-@media screen and (min-width: 1800px) {
+
+@media screen and (min-width: 2000px) {
   .difficultySection {
     font-size: 2rem;
   }
+
   #difficultContainer {
     width: 500px;
     height: 100px;
   }
+
   .span {
     font-size: 1.5rem;
   }
 }
+
 /* .difficultySection {
   display: inline-block;
   border-radius: 20px;

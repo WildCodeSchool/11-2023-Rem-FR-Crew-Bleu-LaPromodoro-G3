@@ -54,15 +54,15 @@ function Presentateur({ goodTexts, idContainer, idSpeech }) {
   const texts = {
     Accueil: [
       "Bienvenue dans QuizCraft! Cliquez sur moi pour en savoir plus et découvrir les défis qui vous attendent. Prêt pour l'aventure ? ",
-      "Texte 2 correspondant à l'expression 2",
-      "Texte 3 correspondant à l'expression 3",
-      "Texte 2 correspondant à l'expression 2",
+      "Vous pouvez sélectionner votre thème en cliquant sur le carrousel situé à gauche de l'écran.",
+      "Êtes-vous prêt à devenir le maître incontesté du quiz ?",
+      "Vous pouvez sélectionner votre thème en cliquant sur le carrousel situé à gauche de l'écran.",
     ],
     Creation: [
       "Bienvenue dans l'espace creation ",
-      "Texte 2 correspondant à l'expression 2",
-      "Texte 3 correspondant à l'expression 3",
-      "Texte 2 correspondant à l'expression 2",
+      "La création d'un quiz est simple : choisissez la difficulté.",
+      "Ensuite, écrivez les questions et fournissez les réponses associées.",
+      "La création d'un quiz est simple : choisissez la difficulté.",
     ],
 
     Results: [
