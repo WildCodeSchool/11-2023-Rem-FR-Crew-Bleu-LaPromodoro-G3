@@ -1,9 +1,3 @@
-#quizPresPosition {
-  left: 7%;
-}
-#quizSpeechPosition {
-  display: none;
-}
 .startQuizShow {
   display: flex;
   flex-direction: column;
@@ -14,12 +8,7 @@
   left: 40%;
   top: 45%;
 }
+
 .startQuizHide {
   display: none;
-}
-
-@media screen and (min-width: 1800px) {
-  #quizPresPosition {
-    left: 15%;
-  }
 }
