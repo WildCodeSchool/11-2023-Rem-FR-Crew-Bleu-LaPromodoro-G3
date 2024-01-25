@@ -1,10 +1,13 @@
+.musicControls {
+  padding-bottom: 20px;
+}
 .btnMusic {
   margin-top: 16px;
   margin-right: 16px;
   /* margin-top: 0.5rem;
   margin-left: 17rem;
   margin-right: 1rem; */
-  height: 5vh;
+  /* height: 5vh; */
   width: auto;
   /* padding: 10px 20px; */
   /* background-color: #007bff; */
@@ -14,12 +17,28 @@
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  background-color: #d5346a;
+  line-height: 100%;
 }
 
 .btnMusic:hover {
-  background-color: #d5346a;
+  background-color: #d5346a8b;
 }
 
+.playButton {
+  padding: 0 0.2rem 0 0.2rem;
+}
+.volumeControl {
+  border-radius: 5px;
+  border: none;
+  margin-right: 2px;
+  background-color: #d5346a;
+  color: aliceblue;
+  line-height: 100%;
+}
+.volumeControl:hover {
+  background-color: #d5346a8b;
+}
 /* .btnMusic:active {
   background-color: #00408b;
 } */

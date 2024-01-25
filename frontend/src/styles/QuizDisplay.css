@@ -80,12 +80,13 @@
   align-items: center;
   gap: 1rem;
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
   left: 40%;
 }
 .congratulationsMessage img {
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
+
 .linkHomePage {
   text-decoration: none;
   /* background-color: #aae6e6; */

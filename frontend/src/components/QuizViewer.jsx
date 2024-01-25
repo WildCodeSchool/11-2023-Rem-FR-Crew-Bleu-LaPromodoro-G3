@@ -31,9 +31,9 @@ function QuizViewer() {
   return (
     <div>
       <div className="inventoryCreation">
-        <h2 id="questionResponse">
+        {/* <h2 id="questionResponse">
           Questions et réponses enregistrées avec succès :
-        </h2>
+        </h2> */}
       </div>
       <div className="viewListing">
         {questionsAndAnswers && questionsAndAnswers.length > 0 && (
