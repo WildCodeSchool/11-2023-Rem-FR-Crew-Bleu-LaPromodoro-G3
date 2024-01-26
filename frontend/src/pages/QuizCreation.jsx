@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import Presentateur from "../components/Presentateur";
 import Navbar2 from "../components/Navbar2";
@@ -9,17 +9,29 @@ import Footer from "../components/Footer";
 // stocker les questions, la question et la réponse actuelles, et l'erreur
 function QuizCreator() {
   const formRef = useRef(null);
-  const [questions, setQuestions] = useState([]);
+  const storedQuestions = JSON.parse(localStorage.getItem("quizQuestions"));
+
+  const [questions, setQuestions] = useState(storedQuestions || []);
   const [currentQuestion, setCurrentQuestion] = useState("");
   const [currentCategory, setCurrentCategory] = useState("");
   // const [currentId, setCurrentId] = useState("");
   const [currentDifficulty, setCurrentDifficulty] = useState("easy");
   const [currentOption, setCurrentOption] = useState("");
   const [error, setError] = useState(null);
-
+  const clearLocalStorageAndResetQuestions = () => {
+    localStorage.removeItem("quizQuestions");
+    setQuestions([]);
+  };
   const maxQuestions = 15;
   const maxOptions = 4;
-
+  useEffect(() => {
+    const loadedQuestions =
+      JSON.parse(localStorage.getItem("quizQuestions")) || [];
+    setQuestions(loadedQuestions);
+  }, []);
+  const saveToLocalStorage = (data) => {
+    localStorage.setItem("quizQuestions", JSON.stringify(data));
+  };
   // ajouter une nouvelle question
   const handleAddQuestion = () => {
     setError(null);
@@ -28,20 +40,23 @@ function QuizCreator() {
       return;
     }
     if (questions.length < maxQuestions) {
-      setQuestions([
+      const updatedQuestions = [
         ...questions,
         {
-          // id: currentId,
           category: currentCategory,
           difficulty: currentDifficulty,
           question: currentQuestion,
           options: [],
         },
-      ]);
+      ];
+      setQuestions(updatedQuestions);
       setCurrentQuestion("");
       setCurrentCategory("");
-      // setCurrentId("");
       setCurrentDifficulty("easy");
+      // Réinitialisez currentOption à une chaîne vide
+      setCurrentOption(""); // Ajoutez cette ligne
+      // Stockez les données mises à jour dans le local storage
+      saveToLocalStorage(updatedQuestions);
     } else {
       setError("Impossible d'ajouter plus de 15 questions");
     }
@@ -74,6 +89,7 @@ function QuizCreator() {
 
     setQuestions(updatedQuestions);
     setCurrentOption("");
+    saveToLocalStorage(updatedQuestions);
   };
 
   // marquer une réponse comme correcte
@@ -93,6 +109,7 @@ function QuizCreator() {
     // eslint-disable-next-line no-restricted-syntax
     console.log(newQuestions);
     setQuestions(newQuestions);
+    saveToLocalStorage(newQuestions);
   };
 
   // sauvegarder le quiz
@@ -125,14 +142,11 @@ function QuizCreator() {
         throw new Error("La réponse du réseau n'était pas valide");
       }
 
-      formRef.current.reset();
-
-      setQuestions([]);
-
       const data = await response.json();
       // eslint-disable-next-line no-restricted-syntax
       console.log("Succès :", data);
       toast("Quiz sauvegardé avec succès!", { toastId: "uniqueId" });
+      clearLocalStorageAndResetQuestions();
     } catch (catchError) {
       console.error("Erreur :", error);
     }
@@ -243,7 +257,7 @@ function QuizCreator() {
           idSpeech="speechContainer"
         />
       </div>
-      <QuizViewer />
+      <QuizViewer questions={questions} />
       <Footer />
     </div>
   );
